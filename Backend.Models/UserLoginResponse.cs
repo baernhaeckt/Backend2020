@@ -1,4 +1,4 @@
-﻿namespace Backend.Web.Models
+﻿namespace Backend.Models
 {
     public class UserLoginResponse
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Backend.Infrastructure.Abstraction.Security;
-using Backend.Web.Models;
+using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

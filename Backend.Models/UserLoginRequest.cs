@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Backend.Web.Models
+namespace Backend.Models
 {
     public class UserLoginRequest
     {
