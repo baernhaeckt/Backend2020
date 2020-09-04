@@ -30,12 +30,12 @@ steps:
     projects: '$(RestoreBuildProjects)'
     arguments: '--configuration $(BuildConfiguration)'
 
-# - task: DotNetCoreCLI@2
-#   displayName: Test
-#   inputs:
-#     command: test
-#     projects: '$(TestProjects)'
-#     arguments: '--configuration $(BuildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: test
+    projects: '$(TestProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: Publish
