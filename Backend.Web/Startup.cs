@@ -1,3 +1,5 @@
+using Backend.Infrastructure.Hosting;
+using Backend.Infrastructure.Persistence;
 using Backend.Infrastructure.Security;
 using Backend.Web.Diagnostics;
 using Backend.Web.Setup;
@@ -28,10 +30,12 @@ namespace Backend.Web
             services.AddApiDocumentation();
             services.AddMvcWithCors();
             services.AddJwtAuthentication();
-            services.AddHealthChecks();
+            var healthChecksBuilder = services.AddHealthChecks();
 
             // Infrastructure
+            services.AddInfrastructurePersistence(_configuration, healthChecksBuilder);
             services.AddInfrastructureSecurity(_hostEnvironment);
+            services.AddInfrastructureHosting();
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)
