@@ -8,12 +8,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
-    <ProjectReference Include="..\Backend.Models\Backend.Models.csproj" />
-  </ItemGroup>
-
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Backend.Models\Backend.Models.csproj" />
     <ProjectReference Include="..\Backend.Infrastructure\Backend.Infrastructure.csproj" />
   </ItemGroup>
 
