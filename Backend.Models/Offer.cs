@@ -16,6 +16,6 @@ namespace Backend.Models
 
         public Guid GuideId { get; set; }
 
-        public Collection<string> Tags { get; set; }
+        public Collection<string> Categories { get; set; }
     }
 }
