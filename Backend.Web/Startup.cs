@@ -2,6 +2,7 @@ using Backend.Infrastructure.Hosting;
 using Backend.Infrastructure.Persistence;
 using Backend.Infrastructure.Security;
 using Backend.Web.Diagnostics;
+using Backend.Web.Middleware;
 using Backend.Web.Setup;
 
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +45,8 @@ namespace Backend.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{Metadata.ApplicationName} API V1"); });
