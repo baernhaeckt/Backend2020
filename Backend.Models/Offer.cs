@@ -15,5 +15,7 @@ namespace Backend.Models
         public Collection<OfferItem> IncludedItems { get; set; }
 
         public Guid GuideId { get; set; }
+
+        public Collection<string> Tags { get; set; }
     }
 }
