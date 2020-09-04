@@ -5,33 +5,36 @@
 
 trigger:
 - master
+- feature/*
 
 pool:
   vmImage: 'windows-2019'
 
 variables:
-  solution: '*.sln'
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  RestoreBuildProjects: '**/*.csproj'
+  TestProjects: '**/*Tests/*.csproj'
 
 steps:
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
     command: restore
-    projects: '$(Parameters.RestoreBuildProjects)'
+    projects: '$(RestoreBuildProjects)'
 
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
-    projects: '$(Parameters.RestoreBuildProjects)'
+    projects: '$(RestoreBuildProjects)'
     arguments: '--configuration $(BuildConfiguration)'
 
 # - task: DotNetCoreCLI@2
 #   displayName: Test
 #   inputs:
 #     command: test
-#     projects: '$(Parameters.TestProjects)'
+#     projects: '$(TestProjects)'
 #     arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
