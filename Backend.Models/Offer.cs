@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Backend.Models
 {
@@ -14,10 +14,10 @@ namespace Backend.Models
         /// <summary>
         /// List of Items which are included in the offer (e.g. transfortation, entry prices).
         /// </summary>
-        public Collection<OfferItem> IncludedItems { get; set; }
+        public ICollection<OfferItem> IncludedItems { get; set; }
 
         public Guid GuideId { get; set; }
 
-        public Collection<string> Categories { get; set; }
+        public ICollection<string> Categories { get; set; }
     }
 }

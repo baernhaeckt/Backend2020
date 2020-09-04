@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Threading.Tasks;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,14 +14,16 @@ namespace Backend.Web.Controllers
     {
         // GET: api/<GuidesController>
         [HttpGet]
-        public List<Guide> Get()
+        public Task<ICollection<Guide>> Get()
         {
-            return new List<Guide>
+            return Task.FromResult((ICollection<Guide>) new List<Guide>
             {
                 new Guide
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Hans",
+                    Firstname = "Hans",
+                    Lastname = "Meier",
+                    Description = "Cooler Fischer!",
                     Languages = new Collection<CultureInfo>
                     {
                         CultureInfo.GetCultureInfo("de")
@@ -29,21 +32,23 @@ namespace Backend.Web.Controllers
                 new Guide
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Hans",
+                    Firstname = "Hans",
+                    Lastname = "Müller",
+                    Description = "Voll der Botscha spieler",
                     Languages = new Collection<CultureInfo>
                     {
                         CultureInfo.GetCultureInfo("en"),
                         CultureInfo.GetCultureInfo("de")
                     }
                 }
-            };
+            });
         }
 
         // POST api/<GuidesController>
         [HttpPost]
-        public Guide Post([FromBody] Guide guide)
+        public Task<Guide> Post([FromBody] Guide guide)
         {
-            return guide;
+            return Task.FromResult(guide);
         }
     }
 }

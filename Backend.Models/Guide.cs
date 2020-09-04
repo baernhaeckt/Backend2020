@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace Backend.Models
@@ -8,8 +8,14 @@ namespace Backend.Models
     {
         public Guid Id { get; set; }
 
-        public string Name { get; set; }
+        public string Firstname { get; set; }
 
-        public Collection<CultureInfo> Languages { get; set; }
+        public string Lastname { get; set; }
+
+        public string Description { get; set; }
+
+        public DateTime Birthday { get; set; }
+
+        public ICollection<CultureInfo> Languages { get; set; }
     }
 }

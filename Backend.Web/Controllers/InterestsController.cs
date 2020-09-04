@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Backend.Web.Controllers
 {
@@ -16,18 +11,18 @@ namespace Backend.Web.Controllers
     {
         // GET: api/<InterestController>
         [HttpGet]
-        public Interest Get()
+        public Task<Interest> Get()
         {
-            return new Interest
+            return Task.FromResult(new Interest
             {
                 Name = "Ponies",
                 Match = false 
-            };
+            });
         }
 
         // POST api/<InterestController>
         [HttpPost]
-        public Collection<Interest> Post([FromBody] Collection<Interest> selectedInterests)
+        public Task<ICollection<Interest>> Post([FromBody] ICollection<Interest> selectedInterests)
         {
             selectedInterests.Add(new Interest
             {
@@ -35,7 +30,7 @@ namespace Backend.Web.Controllers
                 Match = false
             });
 
-            return selectedInterests;
+            return Task.FromResult(selectedInterests);
         }
     }
 }
