@@ -3,7 +3,7 @@
     /// <summary>
     /// Item included in an Offer (e.g. Transportation, Entry Fees ...).
     /// </summary>
-    class OfferItem
+    public class OfferItem
     {
 
         public string Name { get; set; }

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Backend.Models
 {
-    class Offer
+    public class Offer
     {
         public Guid Id { get; set; }
 
