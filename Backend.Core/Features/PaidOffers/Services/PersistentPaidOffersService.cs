@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
@@ -27,9 +28,12 @@ namespace Backend.Core.Features.PaidOffers.Services
             return await Reader.GetByIdOrThrowAsync<PaidOffer>(recommendation.OfferId);
         }
 
-        public async IAsyncEnumerable<PaidOffer> Suggest(OfferResponse selectedOffer)
+
+        public async IAsyncEnumerable<PaidOffer> Suggest(Guid selectedOfferId)
         {
-            var recommendations = await RecommendationService.GetOfferRecommendation(selectedOffer.Categories);
+            var offer = await Reader.GetByIdOrThrowAsync<Offer>(selectedOfferId);
+
+            var recommendations = await RecommendationService.GetPaidOfferRecommendation(offer.Categories);
 
             foreach (var recommendation in recommendations)
             {

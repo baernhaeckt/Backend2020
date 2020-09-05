@@ -23,6 +23,7 @@ namespace Backend.Core.Features.Recommendation.Services
         {
             Stream contentStream = await (await Query(type, categories)).Content.ReadAsStreamAsync();
             var response = await JsonSerializer.DeserializeAsync<WebRecommendationResponse>(contentStream);
+
             return response.Result.Select(parse);
         }
 
@@ -31,9 +32,9 @@ namespace Backend.Core.Features.Recommendation.Services
             return await Get("offers", categories);
         }
 
-        public async Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(OfferResponse offer)
+        public async Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(IEnumerable<string> categories)
         {
-            return await Get("paidOffers", offer.Categories);
+            return await Get("paidoffers", categories);
         }
 
         private static RecommendationResult parse(IList<JsonElement> responseList)

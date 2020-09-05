@@ -8,6 +8,6 @@ namespace Backend.Core.Features.Recommendation.Services
     {
         public Task<IEnumerable<RecommendationResult>> GetOfferRecommendation(IEnumerable<string> categories);
 
-        public Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(OfferResponse offer);
+        public Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(IEnumerable<string> categories);
     }
 }

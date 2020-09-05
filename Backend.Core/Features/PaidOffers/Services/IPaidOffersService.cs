@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Core.Entities;
-using Backend.Core.Features.Offers.Models;
 
 namespace Backend.Core.Features.PaidOffers.Services
 {
@@ -9,6 +9,6 @@ namespace Backend.Core.Features.PaidOffers.Services
     {
         public Task<IEnumerable<PaidOffer>> All { get; }
 
-        public IAsyncEnumerable<PaidOffer> Suggest(OfferResponse selectedOffer);
+        public IAsyncEnumerable<PaidOffer> Suggest(Guid selectedOfferId);
     }
 }

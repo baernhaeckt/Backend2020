@@ -3,6 +3,7 @@ using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.PaidOffers.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -28,9 +29,9 @@ namespace Backend.Core.Features.PaidOffers.Controllers
 
         // GET: api/paidoffers/suggest
         [HttpPost("suggest")]
-        public IAsyncEnumerable<PaidOffer> Suggest(OfferResponse offer)
+        public IAsyncEnumerable<PaidOffer> Suggest(Guid offerId)
         {
-            return PaidOffersService.Suggest(offer);
+            return PaidOffersService.Suggest(offerId);
         }
     }
 }
