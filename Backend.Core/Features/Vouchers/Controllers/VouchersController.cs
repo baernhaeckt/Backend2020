@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Backend.Core.Entities;
+using Backend.Core.Features.Newsfeed;
 using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.Vouchers.Models;
 using Backend.Infrastructure.Abstraction.Persistence;
 using Backend.Infrastructure.Abstraction.Security;
 
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.SignalR;
 using QRCoder;
 
 namespace Backend.Core.Features.Vouchers.Controllers
@@ -20,7 +21,13 @@ namespace Backend.Core.Features.Vouchers.Controllers
     {
         private readonly IWriter _writer;
 
-        public VouchersController(IWriter writer) => _writer = writer;
+        private readonly IHubContext<NotificationHub> _notification;
+
+        public VouchersController(IWriter writer, IHubContext<NotificationHub> notification)
+        {
+            _writer = writer;
+            _notification = notification;
+        }
 
         [HttpPost("{offerId}")]
         public async Task<VoucherResponse> Create(Guid offerId)
@@ -60,6 +67,8 @@ namespace Backend.Core.Features.Vouchers.Controllers
             }
 
             await _writer.UpdateAsync<Voucher>(voucherId, new { IsUsed = true });
+            await _notification.Clients.Group(voucher.CustomerId.ToString())
+                .SendAsync("newEvent", new { Variant = "Success", Title = "Voucher used", Message = voucher.Offer.Name});
 
             return NoContent();
         }

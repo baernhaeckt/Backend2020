@@ -1,4 +1,5 @@
 using Backend.Core.Features.Guiding;
+using Backend.Core.Features.Newsfeed;
 using Backend.Core.Features.Offers;
 using Backend.Core.Features.PaidOffers;
 using Backend.Core.Features.Recommendation;
@@ -36,6 +37,7 @@ namespace Backend.Web
             services.AddApiDocumentation();
             services.AddMvcWithCors();
             services.AddJwtAuthentication();
+            services.AddSignalR();
             var healthChecksBuilder = services.AddHealthChecks();
 
             services.AddTransient<InterestsService>();
@@ -89,6 +91,7 @@ namespace Backend.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers().RequireAuthorization();
+                endpoints.MapHub<NotificationHub>("/newsfeed");
             });
         }
     }
