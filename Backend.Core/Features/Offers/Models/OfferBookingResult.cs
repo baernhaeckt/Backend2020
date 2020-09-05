@@ -1,4 +1,4 @@
-﻿namespace Backend.Web.Services
+﻿namespace Backend.Core.Features.Offers.Models
 {
     public class OfferBookingResult
     {

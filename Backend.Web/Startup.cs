@@ -1,5 +1,6 @@
 using Backend.Core.Features.Guiding;
 using Backend.Core.Features.Offers;
+using Backend.Core.Features.Offers.Services;
 using Backend.Core.Features.PaidOffers;
 using Backend.Core.Features.UserManagement;
 using Backend.Infrastructure.Hosting;

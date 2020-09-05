@@ -1,9 +1,8 @@
-﻿using Backend.Core.Entities;
-using Backend.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Backend.Core.Features.Offers.Models;
 
-namespace Backend.Web.MongoDB
+namespace Backend.Core.Entities
 {
     public class OfferDbItem : Entity
     { 
@@ -19,18 +18,5 @@ namespace Backend.Web.MongoDB
         public Guid GuideId { get; set; }
 
         public ICollection<string> Categories { get; set; }
-
-        public static OfferDbItem Of(Offer offer)
-        {
-            return new OfferDbItem
-            {
-                Id = offer.Id,
-                Name = offer.Name,
-                Description = offer.Description,
-                Categories = offer.Categories,
-                GuideId = offer.GuideId,
-                IncludedItems = offer.IncludedItems
-            };
-        }
     }
 }

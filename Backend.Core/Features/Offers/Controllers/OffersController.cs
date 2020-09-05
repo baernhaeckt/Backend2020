@@ -2,12 +2,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Backend.Core.Features.Offers.Controllers;
+using Backend.Core.Features.Offers.Models;
+using Backend.Core.Features.Offers.Services;
 using Backend.Models;
-using Backend.Web.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Backend.Web.Controllers
+namespace Backend.Core.Features.Offers.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,8 +1,5 @@
 ﻿using Backend.Infrastructure.Abstraction.Hosting;
 using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
-using Backend.Web.MongoDB;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
 using System.Collections.Generic;
 using System.IO;
@@ -11,39 +8,39 @@ using System.Reflection;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Backend.Core.Entities;
+using Backend.Core.Features.Offers.Models;
 
 namespace Backend.Core.Features.Offers.Data
 {
-    class PaidOffersStartupTask : IStartupTask
+    public class OffersStartupTask : IStartupTask
     {
-        private const string FILE_PATH = "Features.Offers.Resources.offers.json";
+        private const string FilePath = "Features.Offers.Resources.offers.json";
 
-        public IWriter Writer { get; }
-        public IWebHostEnvironment Env { get; }
+        private readonly IWriter _writer;
 
-        public PaidOffersStartupTask(IWriter writer, IWebHostEnvironment env)
-        {
-            Writer = writer;
-            Env = env;
-        }
+        public OffersStartupTask(IWriter writer) => _writer = writer;
 
-        private Stream FileContentStream
+        private static Stream FileContentStream
          => new EmbeddedFileProvider(Assembly.GetExecutingAssembly())
-                .GetFileInfo(FILE_PATH)
+                .GetFileInfo(FilePath)
                 .CreateReadStream();
 
         private async Task<IEnumerable<Offer>> GetOffersFromFile()
         {
-            using (var stream = FileContentStream)
-            {
-                return await JsonSerializer.DeserializeAsync<IEnumerable<Offer>>(stream);
-            }
+            await using var stream = FileContentStream;
+            return await JsonSerializer.DeserializeAsync<IEnumerable<Offer>>(stream);
         }
 
         public async Task ExecuteAsync(CancellationToken cancellationToken)
-            => await Task.WhenAll((await GetOffersFromFile())
-                .Select(OfferDbItem.Of)
-                .Select(Writer.InsertAsync)
-                .ToArray());
+        {
+            if (await _writer.CountAsync<OfferDbItem>() > 1)
+            {
+                return;
+            }
+
+            var result = (await GetOffersFromFile()).Select(o => o.To());
+            await _writer.InsertManyAsync(result);
+        }
     }
 }

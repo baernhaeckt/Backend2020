@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Backend.Models
+namespace Backend.Core.Features.Offers.Models
 {
     public class OfferBookingRequest
     {
