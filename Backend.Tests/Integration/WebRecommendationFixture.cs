@@ -9,7 +9,8 @@ namespace Backend.Tests.Integration
 
         WebRecommendationService sut = new WebRecommendationService();
 
-        [Fact]
+
+        [Fact(Skip = "only to be run locally")]
         void ShouldConsumeSuggestionsFromWebService()
         {
 
