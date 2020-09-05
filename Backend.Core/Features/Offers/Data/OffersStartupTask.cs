@@ -1,10 +1,7 @@
 ﻿using Backend.Infrastructure.Abstraction.Hosting;
 using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
-using Backend.Web.MongoDB;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +9,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Backend.Core.Features.Offers.Models;
 
 namespace Backend.Core.Features.Offers.Data
 {
@@ -35,15 +33,13 @@ namespace Backend.Core.Features.Offers.Data
 
         private async Task<IEnumerable<Offer>> GetOffersFromFile()
         {
-            using (var stream = FileContentStream)
-            {
-                return await JsonSerializer.DeserializeAsync<IEnumerable<Offer>>(stream);
-            }
+            await using var stream = FileContentStream;
+            return await JsonSerializer.DeserializeAsync<IEnumerable<Offer>>(stream);
         }
 
         public async Task ExecuteAsync(CancellationToken cancellationToken)
             => await Task.WhenAll((await GetOffersFromFile())
-                .Select(OfferDbItem.Of)
+                .Select(o => o.To())
                 .Select(Writer.InsertAsync)
                 .ToArray());
     }

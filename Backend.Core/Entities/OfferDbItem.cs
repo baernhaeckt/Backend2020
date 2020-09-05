@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Backend.Core.Features.Offers.Models;
 
-namespace Backend.Models
+namespace Backend.Core.Entities
 {
-    public class Offer
-    {
-        public Guid Id { get; set; }
-
+    public class OfferDbItem : Entity
+    { 
         public string Name { get; set; }
 
         public string Description { get; set; }

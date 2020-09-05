@@ -1,52 +1,33 @@
-﻿using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
-using Backend.Web.MongoDB;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Backend.Core.Entities;
+using Backend.Core.Features.Offers.Models;
+using Backend.Infrastructure.Abstraction.Persistence;
+using Backend.Models;
 
-namespace Backend.Web.Services
+namespace Backend.Core.Features.Offers.Services
 {
     public class OfferService : IOfferService
     {
-        private IWriter Writer { get; }
+        private readonly IWriter _writer;
 
-        public OfferService(IWriter writer)
-        {
-            Writer = writer;
-        }
-
-        private Offer Convert(OfferDbItem dbOffer) 
-            => new Offer
-            {
-                Id = dbOffer.Id,
-                Name = dbOffer.Name,
-                Description = dbOffer.Description,
-                Categories = dbOffer.Categories,
-                GuideId = dbOffer.GuideId,
-                IncludedItems = dbOffer.IncludedItems
-            };
+        public OfferService(IWriter writer) => _writer = writer;
 
         public async IAsyncEnumerable<Offer> All()
         {
-            await foreach (var dbOffer in GetAllFromReader())
+            foreach (var dbOffer in await _writer.GetAllAsync<OfferDbItem>())
             {
-                yield return Convert(dbOffer);
-            }
-        }
-
-        private async IAsyncEnumerable<OfferDbItem> GetAllFromReader()
-        {
-            var allOffers = await Writer.GetAllAsync<OfferDbItem>();
-
-            foreach (var offer in allOffers)
-            {
+                var offer = new Offer();
+                offer.From(dbOffer);
                 yield return offer;
             }
-
         }
 
         public async Task<Offer> Store(Offer offer)
-         =>  Convert(await Writer.InsertAsync(OfferDbItem.Of(offer)));
+        {
+            await _writer.InsertAsync(offer.To());
+            return offer;
+        }
 
         public IAsyncEnumerable<Offer> GetSuggested(IEnumerable<Interest> interests)
         {

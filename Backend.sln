@@ -25,7 +25,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend.Infrastructure.Abstraction", "Backend.Infrastructure.Abstraction\Backend.Infrastructure.Abstraction.csproj", "{92FB3E4C-4D91-4D9D-B842-E2271417FCBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8690D9C2-3096-4ADE-A772-C24C5FD7B90F}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend.Infrastructure.Abstraction", "Backend.Infrastructure.Abstraction\Backend.Infrastructure.Abstraction.csproj", "{92FB3E4C-4D91-4D9D-B842-E2271417FCBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

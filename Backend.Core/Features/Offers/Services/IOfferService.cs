@@ -1,8 +1,9 @@
-﻿using Backend.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Backend.Core.Features.Offers.Models;
+using Backend.Models;
 
-namespace Backend.Web.Services
+namespace Backend.Core.Features.Offers.Services
 {
     public interface IOfferService
     {
