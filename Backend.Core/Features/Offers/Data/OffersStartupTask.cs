@@ -4,7 +4,6 @@ using Backend.Models;
 using Backend.Web.MongoDB;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

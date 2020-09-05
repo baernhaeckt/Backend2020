@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Backend.Models;
 using Backend.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Web.Controllers
@@ -18,6 +19,7 @@ namespace Backend.Web.Controllers
         }
 
         // GET: api/offers
+        [AllowAnonymous]
         [HttpGet]
         public IAsyncEnumerable<Offer> Get()
         {
@@ -25,6 +27,7 @@ namespace Backend.Web.Controllers
         }
 
         // POST api/offers/suggest
+        [AllowAnonymous]
         [HttpPost("suggest")]
         public IAsyncEnumerable<Offer> Suggest([FromBody] IEnumerable<Interest> interests)
         {
