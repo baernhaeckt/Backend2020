@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Backend.Core.Features.PaidOffers.Controllers
 {
@@ -24,10 +26,11 @@ namespace Backend.Core.Features.PaidOffers.Controllers
 
         // GET: api/paidoffers
         [HttpGet]
-        public IAsyncEnumerable<PaidOffer> Get()
-        {
-            return PaidOffersService.All;
-        }
+        public async Task<GetPaidOffersResponse> GetAsync()
+            => new GetPaidOffersResponse
+            {
+                PaidOffers = await PaidOffersService.All.ToListAsync()
+            };
 
         // GET: api/paidoffers/suggest
         [HttpPost("suggest")]
