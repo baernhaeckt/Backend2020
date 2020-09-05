@@ -53,7 +53,7 @@
     ]
   },
   {
-    "id": "633194d8-2356-4131-b586-32c1511027db",
+    "Id": "633194d8-2356-4131-b586-32c1511027db",
     "Name": "Petanque spielen",
     "Description": "Du lernst auf der Pläfä Petanque spielen und wir geniessen dazu ein feiner Berner Bier.",
     "IncludedItems": [
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "id": "8955379a-424f-41c7-88bd-d2cbe0657338",
+    "Id": "8955379a-424f-41c7-88bd-d2cbe0657338",
     "Name": "Stall misten",
     "Description": "Du gehst auf einen Bauernhof und putzt zusammen mit mir die Scheisse der Kühe. Ich schweizerörgelle dazu noch.",
     "IncludedItems": [
@@ -99,7 +99,7 @@
     ]
   },
   {
-    "id": "ae6e142b-886a-4a42-85b4-eed039f2fa80",
+    "Id": "ae6e142b-886a-4a42-85b4-eed039f2fa80",
     "Name": "Kühen melken",
     "Description": "Du kommst auf meinen Bauernhof und melkst zusammen mit mir die Kühe. Früh aufstehen ist angesagt! Zum Schluss gibt es Glas Milch",
     "IncludedItems": [
@@ -127,7 +127,7 @@
     ]
   },
   {
-    "id": "a3878767-69a0-4749-8b68-092602759846",
+    "Id": "a3878767-69a0-4749-8b68-092602759846",
     "Name": "Chäsen",
     "Description": "Du machst Käse zusammen mit dem Käser, dabei schaut er nur zu und du musst alles machen.",
     "IncludedItems": [
@@ -151,7 +151,7 @@
     ]
   },
   {
-    "id": "2dc0f6df-e98f-4392-9946-3b3bf60aa639",
+    "Id": "2dc0f6df-e98f-4392-9946-3b3bf60aa639",
     "Name": "Wandern aufs Stockhorn",
     "Description": "Du wanderst zusammen mit einem Ureinwohner auf das Berg, das schöne Stockhorn. Er erzählt dazu ständig Witze.",
     "IncludedItems": [
@@ -175,7 +175,7 @@
     ]
   },
   {
-    "id": "3cbcb723-9642-4000-9887-42d5a07f5a90",
+    "Id": "3cbcb723-9642-4000-9887-42d5a07f5a90",
     "Name": "Bungeesurfen auf der Aare",
     "Description": "Du erhälst ein Surfbrett und gehst zusammen mit dem besten Bungeesurfer auf die Aare. Was für ein Spass!",
     "IncludedItems": [
@@ -199,7 +199,7 @@
     ]
   },
   {
-    "id": "1c154bdf-4986-45bd-aefb-b7453ab207a1",
+    "Id": "1c154bdf-4986-45bd-aefb-b7453ab207a1",
     "Name": "Slacklinen über den Wolken",
     "Description": "Zusammen mit dem Slackline Dude aus Köniz gehst du auf einen Hoger oder Berg und balancierst dort über das Tobel auf der Slackline",
     "IncludedItems": [
@@ -233,7 +233,7 @@
     ]
   },
   {
-    "id": "d955fb13-4ca5-4b60-9c4b-3b8f397ea3a5",
+    "Id": "d955fb13-4ca5-4b60-9c4b-3b8f397ea3a5",
     "Name": "Gin trinken",
     "Description": "Du gehst mit dem Gin Dude in die Matte Brennerei und saufst dort den ganzen Abend Gin.",
     "IncludedItems": [
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "id": "7f834f66-6efb-4c3e-9914-25092b57ab3c",
+    "Id": "7f834f66-6efb-4c3e-9914-25092b57ab3c",
     "Name": "Ab ins Dählhölzli",
     "Description": "Zusammen mit den Tierpfleger gehst du in den Zoo und fütterst die Tiere, auch die Löwen.",
     "IncludedItems": [
@@ -277,7 +277,7 @@
     ]
   },
   {
-    "id": "44dc4741-ab94-48d1-a152-714d0680eb2d",
+    "Id": "44dc4741-ab94-48d1-a152-714d0680eb2d",
     "Name": "Basejumping in Lauterbrunnen",
     "Description": "Zusammen mit dem Basejunp Dude aus Lauterbrunnen kannst du 3 Sekunden freien Fall geniessen, wir hoffen nicht mehr.",
     "IncludedItems": [
@@ -301,7 +301,7 @@
     ]
   },
   {
-    "id": "bc750e04-bb50-4dc0-a1db-5239e53e34f4",
+    "Id": "bc750e04-bb50-4dc0-a1db-5239e53e34f4",
     "Name": "Zu Fuss auf das Jungfraujoch",
     "Description": "Mit Bergführer Hans kletterst du auf das Jungfraujoch, er erzählt dir viele Geschichten aus seiner Jugend.",
     "IncludedItems": [
@@ -329,7 +329,7 @@
     ]
   },
   {
-    "id": "ba21170b-a597-476b-be46-ed0202049141",
+    "Id": "ba21170b-a597-476b-be46-ed0202049141",
     "Name": "Salat ernten im Seeland",
     "Description": "Du kannst einen Tag lang mit dem Bauer Salat ernten, am schluss bekommst du noch eine feinen Salat zum essen.",
     "IncludedItems": [
@@ -349,7 +349,7 @@
     ]
   },
   {
-    "id": "a7ea847e-b875-4f1b-90f6-ab7830771cf2",
+    "Id": "a7ea847e-b875-4f1b-90f6-ab7830771cf2",
     "Name": "Trauben lesen in Twann",
     "Description": "Einen Tag Trauben lesen und jede halbe Stunde mit einen Glas Weisswein anstossen.",
     "IncludedItems": [
@@ -374,7 +374,7 @@
     ]
   },
   {
-    "id": "c60836f2-a873-4bec-b0a6-1bdd2923ff16",
+    "Id": "c60836f2-a873-4bec-b0a6-1bdd2923ff16",
     "Name": "Wakeboarden auf dem Thunersee",
     "Description": "Einen Tag mit dem Surf Dude auf dem Thunersee Wakeboarden und dazu einen schönen Sonnenbrand holen.",
     "IncludedItems": [
