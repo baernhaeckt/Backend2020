@@ -5,13 +5,16 @@ namespace Backend.Core.Features.Vouchers.Models
 {
     public class VoucherResponse
     {
-        public VoucherResponse(Offer offer, string publicTransportQrCode, string voucherQrCode, Guid customerId)
+        public VoucherResponse(Guid id, Offer offer, string publicTransportQrCode, string voucherQrCode, Guid customerId)
         {
+            Id = id;
             Offer = offer;
             PublicTransportQrCode = publicTransportQrCode;
             VoucherQrCode = voucherQrCode;
             CustomerId = customerId;
         }
+
+        public Guid Id { get; set; }
 
         public Offer Offer { get; }
 

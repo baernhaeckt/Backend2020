@@ -38,16 +38,16 @@ namespace Backend.Core.Features.Vouchers.Controllers
 
             Offer offer = new Offer();
             offer.From(offerDbItem);
-            return new VoucherResponse(offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId);
+            return new VoucherResponse(voucherId, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId);
         }
 
         [HttpGet]
-        public async Task<VoucherResponse> Get(Guid voucherId)
+        public async Task<VoucherResponse> Get(Guid id)
         {
-            var voucher = await _writer.GetByIdOrThrowAsync<Voucher>(voucherId);
+            var voucher = await _writer.GetByIdOrThrowAsync<Voucher>(id);
             Offer offer = new Offer();
             offer.From(voucher.Offer);
-            return new VoucherResponse(offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId);
+            return new VoucherResponse(id, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId);
         }
     }
 }

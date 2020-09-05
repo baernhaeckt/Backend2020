@@ -26,6 +26,7 @@ namespace Backend.Core.Features.Offers.Models
         {
             return new OfferDbItem
             {
+                Id = Id,
                 Name = Name,
                 Description = Description,
                 Categories = Categories,
