@@ -24,5 +24,7 @@ namespace Backend.Core.Entities
         public string VoucherQrCode { get; set; }
 
         public Guid CustomerId { get; set; }
+
+        public bool IsUsed { get; set; }
     }
 }

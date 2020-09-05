@@ -2,9 +2,13 @@
   {
     "Name": "Stadtrundfahrt durch Biel",
     "Description": "Lerne Biel kennen und lieben",
-    "Ranking": 16,
+    "Ranking": 1,
     "Location": "Biel",
     "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
       {
         "Day": "Monday",
         "Time": "09:00"
@@ -19,14 +23,21 @@
       }
     ],
     "Duration": "4:00:00",
-    "Categories": [ "Spass", "Stadt" ]
+    "Categories": [
+      "Spass",
+      "Stadt"
+    ]
   },
   {
     "Name": "Zahlbares Hotel z Spiez",
-    "Description": "...",
-    "Ranking": 3,
+    "Description": "Übernachte im besten Hotem in Spiez zu einen Spotpreis",
+    "Ranking": 1,
     "Location": "Spiez",
     "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
       {
         "Day": "Monday",
         "Time": "09:00"
@@ -41,6 +52,216 @@
       }
     ],
     "Duration": "16:00:00",
-    "Categories": [ "Stadt" ]
-  }
+    "Categories": [
+      "Stadt"
+    ]
+  },
+  {
+    "Name": "Eintritt Museum für Kommunikation",
+    "Description": "Kaufe ein Eintritt ins Museum für Kommuniktion 20% billiger",
+    "Ranking": 1,
+    "Location": "Bern",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "1:00:00",
+    "Categories": [
+      "Stadt",
+      "Unterhaltung"
+    ]
+  },
+  {
+    "Name": "Schifffahrt auf dem Thunersee",
+    "Description": "Fahre von Thun nach Interlaken mit der Blüemlisalp.",
+    "Ranking": 1,
+    "Location": "Thun",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "2:00:00",
+    "Categories": [
+      "Stadt",
+      "See"
+    ]
+  },
+  {
+    "Name": "5 Sterne Hotel in Bern",
+    "Description": "Übernachte einmal neben dem Bundeshaus im Hotel Bellevue. Den ersten Gin gibt es Gratis.",
+    "Ranking": 1,
+    "Location": "Bern",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "24:00:00",
+    "Categories": [
+      "Stadt",
+      "Unterhaltung"
+    ]
+  },
+  {
+    "Name": "Top of Europe erleben",
+    "Description": "Fahre mit der Bahn auf den schönsten Aussichtspunkt in der Welt.",
+    "Ranking": 1,
+    "Location": "Grindelwald",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "6:00:00",
+    "Categories": [
+      "Berge",
+      "Land",
+      "Klassisch"
+    ]
+  },
+  {
+    "Name": "Fondue Essen im Restaurant Harmonie",
+    "Description": "Geniesse einmal in deinem Leben die Kässsuppe nach der du nicht mehr schlafen kannst.",
+    "Ranking": 2,
+    "Location": "Bern",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "6:00:00",
+    "Categories": [
+      "Stadt",
+      "Spass",
+      "Klassisch"
+    ]
+  },
+  {
+    "Name": "Trottinett Plausch in Adelboden",
+    "Description": "Fahre mit dem Trotti vom Berg herunter und sei der schnellste. Am Schluss gibt es Bier und Wurst im Restaurant Tanne 20% billger",
+    "Ranking": 2,
+    "Location": "Adelboden",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "6:00:00",
+    "Categories": [
+      "Berge",
+      "Action",
+      "Unterhaltung"
+    ]
+  },
+  {
+    "Name": "Jungfrau Corona Pass",
+    "Description": "Fahre drei Tage in der Ganzen Jungfrau Region herum und erlebe die schöne Bergwelt.",
+    "Ranking": 2,
+    "Location": "Interlaken",
+    "Starts": [
+      {
+        "Day": "Sunday",
+        "Time": "09:00"
+      },      
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "6:00:00",
+    "Categories": [
+      "Berge",
+      "Action",
+      "Unterhaltung",
+      "See"
+    ]
+  }                 
 ]

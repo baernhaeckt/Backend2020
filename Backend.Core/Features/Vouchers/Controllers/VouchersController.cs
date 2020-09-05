@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Backend.Core.Entities;
+using Backend.Core.Features.Newsfeed;
 using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.Vouchers.Models;
 using Backend.Infrastructure.Abstraction.Persistence;
 using Backend.Infrastructure.Abstraction.Security;
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using QRCoder;
 
 namespace Backend.Core.Features.Vouchers.Controllers
@@ -17,7 +21,13 @@ namespace Backend.Core.Features.Vouchers.Controllers
     {
         private readonly IWriter _writer;
 
-        public VouchersController(IWriter writer) => _writer = writer;
+        private readonly IHubContext<NotificationHub> _notification;
+
+        public VouchersController(IWriter writer, IHubContext<NotificationHub> notification)
+        {
+            _writer = writer;
+            _notification = notification;
+        }
 
         [HttpPost("{offerId}")]
         public async Task<VoucherResponse> Create(Guid offerId)
@@ -39,20 +49,46 @@ namespace Backend.Core.Features.Vouchers.Controllers
 
             Offer offer = new Offer();
             offer.From(offerDbItem);
-            return new VoucherResponse(voucherId, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId);
+            return new VoucherResponse(voucherId, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId, voucher.IsUsed);
+        }
+
+        [HttpPut("{voucherId}")]
+        public async Task<IActionResult> Use(Guid voucherId)
+        {
+            var voucher = await _writer.GetByIdOrThrowAsync<Voucher>(voucherId);
+            if (voucher.Offer.GuideId != HttpContext.User.Id())
+            {
+                return Unauthorized();
+            }
+
+            if (voucher.IsUsed)
+            {
+                return BadRequest("Voucher already used.");
+            }
+
+            await _writer.UpdateAsync<Voucher>(voucherId, new { IsUsed = true });
+            await _notification.Clients.Group(voucher.CustomerId.ToString())
+                .SendAsync("newEvent", new { Variant = "Success", Title = "Voucher used", Message = voucher.Offer.Name});
+
+            return NoContent();
         }
 
         [HttpGet]
         public async Task<IEnumerable<VouchersResponse>> Get()
             => await _writer.WhereAsync<Voucher, VouchersResponse>(v => v.CustomerId == HttpContext.User.Id(), v => new VouchersResponse(v.Id, v.Offer.Name));
 
-        [HttpGet("{id}")]
-        public async Task<VoucherResponse> Get(Guid id)
+        [HttpGet("{voucherId}")]
+        public async Task<IActionResult> Get(Guid voucherId)
         {
-            var voucher = await _writer.GetByIdOrThrowAsync<Voucher>(id);
+            var voucher = await _writer.GetByIdOrThrowAsync<Voucher>(voucherId);
+            if (voucher.CustomerId != HttpContext.User.Id() && voucher.Offer.GuideId != HttpContext.User.Id())
+            {
+                return Unauthorized();
+            }
+
             Offer offer = new Offer();
             offer.From(voucher.Offer);
-            return new VoucherResponse(id, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId);
+            return Ok(new VoucherResponse(voucherId, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId, voucher.IsUsed));
         }
     }
 }
