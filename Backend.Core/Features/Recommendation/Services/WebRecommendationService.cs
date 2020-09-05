@@ -22,9 +22,8 @@ namespace Backend.Core.Features.Recommendation.Services
         private async Task<IEnumerable<RecommendationResult>> Get(string type, IEnumerable<string> categories)
         {
             Stream contentStream = await (await Query(type, categories)).Content.ReadAsStreamAsync();
-            var recommendations = await JsonSerializer.DeserializeAsync<List<List<object>>>(contentStream);
-
-            return recommendations.Select(parse);
+            var response = await JsonSerializer.DeserializeAsync<WebRecommendationResponse>(contentStream);
+            return response.Result.Select(parse);
         }
 
         public async Task<IEnumerable<RecommendationResult>> GetOfferRecommendation(IEnumerable<string> categories)
@@ -37,12 +36,12 @@ namespace Backend.Core.Features.Recommendation.Services
             return await Get("paidOffers", offer.Categories);
         }
 
-        private static RecommendationResult parse(IList<object> responseList)
+        private static RecommendationResult parse(IList<JsonElement> responseList)
         {
             return new RecommendationResult
             {
-                OfferId = new Guid((string)responseList[0]),
-                Rating = (double)responseList[1]
+                OfferId = new Guid(responseList[0].GetString()),
+                Rating = responseList[1].GetDouble()
             };
         }
     }
