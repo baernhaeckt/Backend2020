@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Backend.Core.Features.Offers.Controllers;
 using Backend.Models;
 using Backend.Web.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -21,10 +23,12 @@ namespace Backend.Web.Controllers
         // GET: api/offers
         [AllowAnonymous]
         [HttpGet]
-        public IAsyncEnumerable<Offer> Get()
+        public async Task<GetAllOffersResponse> Get() 
+            => new GetAllOffersResponse
         {
-            return OfferService.All();
-        }
+            Offers = await OfferService.All().ToListAsync()
+        };
+
 
         // POST api/offers/suggest
         [AllowAnonymous]
