@@ -32,6 +32,7 @@ namespace Backend.Web.Controllers
             {
                 Token = _securityTokenFactory.Create(Guid.NewGuid(), "DummyUser", Enumerable.Empty<string>())
             };
+            Response.Headers.Add("Authorization", $"Bearer {response.Token}");
             return new ActionResult<UserLoginResponse>(response);
         }
 
