@@ -1,6 +1,7 @@
 using Backend.Core.Features.Guiding;
 using Backend.Core.Features.Offers;
 using Backend.Core.Features.PaidOffers;
+using Backend.Core.Features.Recommendation;
 using Backend.Core.Features.UserManagement;
 using Backend.Infrastructure.Hosting;
 using Backend.Infrastructure.Persistence;
@@ -50,6 +51,7 @@ namespace Backend.Web
             services.AddFeatureGuiding();
             services.AddFeatureOffers();
             services.AddFeaturePaidOffers();
+            services.AddFeatureRecommendation();
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)
