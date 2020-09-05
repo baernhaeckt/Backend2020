@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Models;
 using Backend.Web.Services;
@@ -11,9 +10,9 @@ namespace Backend.Web.Controllers
     [ApiController]
     public class OffersController : ControllerBase
     {
-        public OfferService OfferService { get; }
+        public IOfferService OfferService { get; }
 
-        public OffersController(OfferService offerService)
+        public OffersController(IOfferService offerService)
         {
             OfferService = offerService;
         }
@@ -27,39 +26,24 @@ namespace Backend.Web.Controllers
 
         // POST api/offers/suggest
         [HttpPost("suggest")]
-        public Task<ICollection<Offer>> Post([FromBody] ICollection<Interest> interests)
+        public IAsyncEnumerable<Offer> Suggest([FromBody] IEnumerable<Interest> interests)
         {
-            return Task.FromResult((ICollection<Offer>) new List<Offer>
-                {
-                    new Offer
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Fische im Oeschinensee",
-                        IncludedItems = new List<OfferItem>
-                        {
-                            new OfferItem
-                            {
-                                Name = "BLS",
-                                Price = 15-5
-                            }
-                        }
-                    }
-                });
+            return OfferService.GetSuggested(interests);
         }
 
         // POST api/offers
         [HttpPost]
-        public Task<Offer> create([FromBody] Offer offer)
+        public Task<Offer> Create([FromBody] Offer offer)
         {
-            return Task.FromResult(offer);
+            return OfferService.Store(offer);
         }
 
 
         // POST api/offers/book
         [HttpPost("book")]
-        public Task<Offer> book([FromBody] OfferBookingRequest offerBookingRequest)
+        public Task<OfferBookingResult> Book([FromBody] OfferBookingRequest offerBookingRequest)
         {
-            return Task.FromResult(new Offer());
+            return OfferService.Book(offerBookingRequest);
         }
     }
 }

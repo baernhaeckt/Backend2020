@@ -35,7 +35,7 @@ namespace Backend.Web
             var healthChecksBuilder = services.AddHealthChecks();
 
             services.AddTransient<InterestsService>();
-            services.AddTransient<OfferService>();
+            services.AddTransient<IOfferService, OfferService>();
 
             // Infrastructure
             services.AddInfrastructurePersistence(_configuration, healthChecksBuilder);
