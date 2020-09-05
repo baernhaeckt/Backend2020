@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Models;
+using Backend.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Web.Controllers
@@ -10,11 +11,18 @@ namespace Backend.Web.Controllers
     [ApiController]
     public class OffersController : ControllerBase
     {
+        public OfferService OfferService { get; }
+
+        public OffersController(OfferService offerService)
+        {
+            OfferService = offerService;
+        }
+
         // GET: api/offers
         [HttpGet]
-        public Task<ICollection<Offer>> Get()
+        public IAsyncEnumerable<Offer> Get()
         {
-            return Post(new List<Interest> ());
+            return OfferService.All();
         }
 
         // POST api/offers/suggest
