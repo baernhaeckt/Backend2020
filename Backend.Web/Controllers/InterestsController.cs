@@ -12,19 +12,23 @@ namespace Backend.Web.Controllers
     {
         InterestsService interestsService;
 
-        private InterestsController(InterestsService interestsService)
+        public InterestsController(InterestsService interestsService)
         {
             this.interestsService = interestsService;
         }
 
-        // GET: api/interests
+        /// <summary>
+        /// Returns an initial <see cref="Interest"/>.
+        /// </summary>
         [HttpGet]
         public Task<Interest> Get()
         {
             return interestsService.GetNextInterest();
         }
 
-        // POST api/interests/next
+        /// <summary>
+        /// Returns an <see cref="Interest"/> based on previous selected <see cref="Interest"/>.
+        /// </summary>
         [HttpPost("next")]
         public Task<Interest> Post([FromBody] ICollection<Interest> selectedInterests)
         {

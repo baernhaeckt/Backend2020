@@ -3,6 +3,7 @@ using Backend.Infrastructure.Persistence;
 using Backend.Infrastructure.Security;
 using Backend.Web.Diagnostics;
 using Backend.Web.Middleware;
+using Backend.Web.Services;
 using Backend.Web.Setup;
 
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,8 @@ namespace Backend.Web
             services.AddMvcWithCors();
             services.AddJwtAuthentication();
             var healthChecksBuilder = services.AddHealthChecks();
+
+            services.AddTransient<InterestsService>();
 
             // Infrastructure
             services.AddInfrastructurePersistence(_configuration, healthChecksBuilder);
