@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Backend.Core.Entities;
+using Backend.Models;
 
 namespace Backend.Core.Features.Offers.Models
 {
@@ -19,6 +20,8 @@ namespace Backend.Core.Features.Offers.Models
         public ICollection<OfferItem> IncludedItems { get; set; }
 
         public Guid GuideId { get; set; }
+
+        public Guide Guide { get; set; }
 
         public ICollection<string> Categories { get; set; }
 

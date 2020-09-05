@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Backend.Core.Features.Recommendation.Services
 {
-    interface IRecommendationService
+    public interface IRecommendationService
     {
         public Task<IEnumerable<RecommendationResult>> GetOfferRecommendation(IEnumerable<string> categories);
 
