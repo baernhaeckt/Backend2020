@@ -66,7 +66,9 @@ namespace Backend.Web
 
             app.UseCors(x =>
                 x.AllowAnyMethod()
-                    .WithOrigins("http://localhost:8080", "http://localhost:5000", "https://baernhaeckt2020.z19.web.core.windows.net/")
+                    .WithOrigins("http://localhost:8080",
+                                 "http://localhost:5000", 
+                                 "https://baernhaeckt2020.z19.web.core.windows.net")
                     .AllowAnyHeader()
                     .WithExposedHeaders("Authorization")
                     .AllowCredentials());
