@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace Backend.Core.Features.Guiding.Data
             {
                 new User
                 {
+                    Id = Guid.Parse("5d017691-a2b7-4af8-b14e-357879746dc6"),
                     Firstname = "Hans",
                     Lastname = "Meier",
                     Description = "Cooler Fischer!",

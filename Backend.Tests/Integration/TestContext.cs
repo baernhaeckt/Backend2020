@@ -14,10 +14,13 @@ namespace Backend.Tests.Integration
         public TestContext()
         {
             NewTestUserHttpClient = CreateClient();
+            GuideUserHttpClient = CreateClient();
             AnonymousHttpClient = CreateClient();
         }
 
         public HttpClient NewTestUserHttpClient { get; }
+
+        public HttpClient GuideUserHttpClient { get; }
 
         public HttpClient AnonymousHttpClient { get; }
 

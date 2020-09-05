@@ -64,7 +64,27 @@ namespace Backend.Tests.Integration
             HttpResponseMessage responseGet = await _context.NewTestUserHttpClient.GetAsync(uriGet);
             result = await responseGet.OnSuccessDeserialize<VoucherResponse>();
             Assert.True(result.Offer.Id.Equals(offerId));
+        }
 
+        [Fact]
+        public async Task Use_Successful()
+        {
+            _context.NewTestUser = await _context.NewTestUserHttpClient.CreateUserAndSignIn();
+            await _context.GuideUserHttpClient.SignIn("hans.meier@test.ch", "test");
+
+            Guid offerId = Guid.Parse("3fbcb9c2-c8c8-4270-ad12-ad4c203c5d31");
+            var uri = new Uri($"api/vouchers/{offerId}", UriKind.Relative);
+            HttpResponseMessage response = await _context.NewTestUserHttpClient.PostAsync(uri, null);
+            var result = await response.OnSuccessDeserialize<VoucherResponse>();
+            
+            var useUri = new Uri($"api/vouchers/{result.Id}", UriKind.Relative);
+            response = await _context.GuideUserHttpClient.PutAsync(useUri, null);
+            response.EnsureSuccessStatusCode();
+
+            var uriGet = new Uri($"api/vouchers/{result.Id}", UriKind.Relative);
+            HttpResponseMessage responseGet = await _context.NewTestUserHttpClient.GetAsync(uriGet);
+            result = await responseGet.OnSuccessDeserialize<VoucherResponse>();
+            Assert.True(result.IsUsed);
         }
     }
 }

@@ -5,13 +5,14 @@ namespace Backend.Core.Features.Vouchers.Models
 {
     public class VoucherResponse
     {
-        public VoucherResponse(Guid id, Offer offer, string publicTransportQrCode, string voucherQrCode, Guid customerId)
+        public VoucherResponse(Guid id, Offer offer, string publicTransportQrCode, string voucherQrCode, Guid customerId, bool isUsed)
         {
             Id = id;
             Offer = offer;
             PublicTransportQrCode = publicTransportQrCode;
             VoucherQrCode = voucherQrCode;
             CustomerId = customerId;
+            IsUsed = isUsed;
         }
 
         public Guid Id { get; set; }
@@ -23,5 +24,7 @@ namespace Backend.Core.Features.Vouchers.Models
         public string VoucherQrCode { get; }
 
         public Guid CustomerId { get; }
+
+        public bool IsUsed { get; set; }
     }
 }
