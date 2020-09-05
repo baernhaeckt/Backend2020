@@ -40,6 +40,7 @@ namespace Backend.Core.Features.Guiding.Data
                     {
                         "de"
                     },
+                    Roles = new List<string>{ Roles.Guide },
                     PasswordHash = _passwordStorage.Create("test")
                 },
                 new User
@@ -53,6 +54,7 @@ namespace Backend.Core.Features.Guiding.Data
                         "en",
                         "de"
                     },
+                    Roles = new List<string>{ Roles.Guide },
                     PasswordHash = _passwordStorage.Create("test")
                 }
             };

@@ -39,6 +39,7 @@ namespace Backend.Core.Features.UserManagement.Data
                     {
                         "de"
                     },
+                    Roles = new List<string>{ Roles.User },
                     PasswordHash = _passwordStorage.Create("test")
                 },
                 new User
@@ -51,6 +52,7 @@ namespace Backend.Core.Features.UserManagement.Data
                         "de",
                         "es"
                     },
+                    Roles = new List<string>{ Roles.User },
                     PasswordHash = _passwordStorage.Create("test")
                 },
                 new User
@@ -63,6 +65,7 @@ namespace Backend.Core.Features.UserManagement.Data
                         "en",
                         "fr"
                     },
+                    Roles = new List<string>{ Roles.User },
                     PasswordHash = _passwordStorage.Create("test")
                 }
             };
