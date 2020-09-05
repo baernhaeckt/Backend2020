@@ -19,7 +19,8 @@ namespace Backend.Core.Features.PaidOffers.Services
 
         private IRecommendationService RecommendationService { get; }
 
-        public IAsyncEnumerable<PaidOffer> All => GetAllFromReader();
+        public Task<IEnumerable<PaidOffer>> All => Reader.GetAllAsync<PaidOffer>();
+
 
         public async IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
         {
@@ -35,6 +36,11 @@ namespace Backend.Core.Features.PaidOffers.Services
         private async Task<PaidOffer> Load(RecommendationResult recommendation)
         {
             return await Reader.GetByIdOrThrowAsync<PaidOffer>(recommendation.OfferId);
+        }
+
+        public IAsyncEnumerable<PaidOffer> Suggest(OfferResponse selectedOffer)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

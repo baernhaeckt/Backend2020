@@ -1,5 +1,5 @@
 ﻿using Backend.Core.Extensions;
-using Backend.Core.Features.Offers.PaidOffers;
+using Backend.Core.Features.PaidOffers.Data;
 using Backend.Core.Features.PaidOffers.Services;
 using Microsoft.Extensions.DependencyInjection;
 

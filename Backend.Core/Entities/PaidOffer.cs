@@ -13,9 +13,9 @@ namespace Backend.Core.Entities
 
         public string Location { get; set; }
 
-        public StartOption Start { get; set; }
+        public IEnumerable<StartOption> Starts { get; set; }
 
-        public TimeSpan Duration { get; set; }
+        public String Duration { get; set; }
 
         public ICollection<string> Categories { get; set; }
     }
