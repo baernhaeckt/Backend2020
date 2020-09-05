@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Backend.Infrastructure.Abstraction\Backend.Infrastructure.Abstraction.csproj" />
     <ProjectReference Include="..\Backend.Models\Backend.Models.csproj" />
   </ItemGroup>
