@@ -41,9 +41,17 @@ namespace Backend.Web.Controllers
 
         // POST api/offers
         [HttpPost]
-        public Task<Offer> Put([FromBody] Offer offer)
+        public Task<Offer> create([FromBody] Offer offer)
         {
             return Task.FromResult(offer);
+        }
+
+
+        // POST api/offers/book
+        [HttpPost("book")]
+        public Task<Offer> book([FromBody] OfferBookingRequest offerBookingRequest)
+        {
+            return Task.FromResult(new Offer());
         }
     }
 }

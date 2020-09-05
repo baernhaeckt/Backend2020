@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Backend.Models
 {
-    public class Guide
+    public class Guide : IGuide
     {
         public Guid Id { get; set; }
 
