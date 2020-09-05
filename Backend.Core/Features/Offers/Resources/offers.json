@@ -68,7 +68,7 @@
         "Price": 22.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "fae2f93f-00fa-44d8-ad73-b2162128b6ee",
     "Categories": [
       "Unterhaltung",
       "Spass",
@@ -91,7 +91,7 @@
         "Price": 1.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "cf7a81fd-d556-4003-977b-7de77b38fa3f",
     "Categories": [
       "Land",
       "Klassisch",
@@ -115,11 +115,11 @@
       },
       {
         "Name": "Milch",
-        "Description": "Frisch vom Uter",
+        "Description": "Frisch vom Euter",
         "Price": 1.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "cf7a81fd-d556-4003-977b-7de77b38fa3f",
     "Categories": [
       "Land",
       "Klassisch",
@@ -142,7 +142,7 @@
         "Price": 1.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "9b5beddd-2632-4956-bbe3-702bef8ef5ae",
     "Categories": [
       "Land",
       "Klassisch",
@@ -165,7 +165,7 @@
         "Price": 1.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "bc851f39-92b7-4ab5-8b0c-6412e433281a",
     "Categories": [
       "Land",
       "Berge",
@@ -188,7 +188,7 @@
         "Price": 50.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "8baeb1b5-8b8d-42c2-86ae-416b6fbc9e8c",
     "Categories": [
       "Stadt",
       "Fluss",
@@ -218,10 +218,10 @@
       {
         "Name": "Rega Helikopter",
         "Description": "Wenn was schief geht ist der Heli schon da",
-        "Price": 10000.00
+        "Price": 8500.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "8baeb1b5-8b8d-42c2-86ae-416b6fbc9e8c",
     "Categories": [
       "Berge",
       "Spass",
@@ -244,7 +244,7 @@
         "Price": 100.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "6a74f3f1-40dc-4590-9f75-3c6f59581d34",
     "Categories": [
       "Stadt",
       "Spass",
@@ -282,7 +282,7 @@
         "Price": 5.00
       }
     ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "GuideId": "b1ee7b15-1976-4152-ba15-e13f0e70e699",
     "Categories": [
       "Stadt",
       "Spass",
