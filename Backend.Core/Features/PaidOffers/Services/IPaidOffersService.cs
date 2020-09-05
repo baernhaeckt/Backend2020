@@ -1,4 +1,5 @@
 ﻿using Backend.Core.Entities;
+using Backend.Core.Features.Offers.Models;
 using Backend.Models;
 using System.Collections.Generic;
 

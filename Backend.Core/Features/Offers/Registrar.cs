@@ -1,5 +1,5 @@
 ﻿using Backend.Core.Extensions;
-using Backend.Web.Services;
+using Backend.Core.Features.Offers.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Backend.Core.Features.Offers
@@ -10,7 +10,7 @@ namespace Backend.Core.Features.Offers
         {
             return services
                 .AddTransient<IOfferService, OfferService>()
-                .AddStartupTask<Data.PaidOffersStartupTask>();
+                .AddStartupTask<Data.OffersStartupTask>();
         }
     }
 }

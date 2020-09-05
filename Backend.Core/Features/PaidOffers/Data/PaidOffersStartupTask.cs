@@ -1,7 +1,7 @@
-﻿using Backend.Infrastructure.Abstraction.Hosting;
+﻿using Backend.Core.Entities;
+using Backend.Core.Features.Offers.Models;
+using Backend.Infrastructure.Abstraction.Hosting;
 using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
-using Backend.Web.MongoDB;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
 using System.Collections.Generic;
@@ -40,9 +40,6 @@ namespace Backend.Core.Features.Offers.PaidOffers
         }
 
         public async Task ExecuteAsync(CancellationToken cancellationToken)
-            => await Task.WhenAll((await GetOffersFromFile())
-                .Select(OfferDbItem.Of)
-                .Select(Writer.InsertAsync)
-                .ToArray());
+            => await Task.CompletedTask;
     }
 }

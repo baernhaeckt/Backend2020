@@ -1,4 +1,5 @@
 ﻿using Backend.Core.Entities;
+using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.PaidOffers.Services;
 using Backend.Models;
 using Microsoft.AspNetCore.Authorization;

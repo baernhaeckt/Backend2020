@@ -28,4 +28,8 @@
     <ProjectReference Include="..\Backend.Models\Backend.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Backend\Core\Features\Offers\Data\" />
+  </ItemGroup>
+
 </Project>
