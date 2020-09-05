@@ -1,18 +1,16 @@
-﻿using Backend.Core.Entities;
-using Backend.Core.Features.Offers.Models;
-using Backend.Infrastructure.Abstraction.Hosting;
-using Backend.Infrastructure.Abstraction.Persistence;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.FileProviders;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Backend.Core.Entities;
+using Backend.Infrastructure.Abstraction.Hosting;
+using Backend.Infrastructure.Abstraction.Persistence;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 
-namespace Backend.Core.Features.Offers.PaidOffers
+namespace Backend.Core.Features.PaidOffers.Data
 {
     class PaidOffersStartupTask : IStartupTask
     {

@@ -8,7 +8,7 @@ namespace Backend.Core.Entities
         {
         }
 
-        public Voucher(Guid id, OfferDbItem offer, string publicTransportQrCode, string voucherQrCode, Guid customerId)
+        public Voucher(Guid id, Offer offer, string publicTransportQrCode, string voucherQrCode, Guid customerId)
         {
             Id = id;
             Offer = offer;
@@ -17,7 +17,7 @@ namespace Backend.Core.Entities
             CustomerId = customerId;
         }
 
-        public OfferDbItem Offer { get; set; }
+        public Offer Offer { get; set; }
 
         public string PublicTransportQrCode { get; set; }
 

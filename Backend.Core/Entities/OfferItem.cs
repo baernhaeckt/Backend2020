@@ -1,4 +1,4 @@
-﻿namespace Backend.Core.Features.Offers.Models
+﻿namespace Backend.Core.Entities
 {
     /// <summary>
     /// Item included in an Offer (e.g. Transportation, Entry Fees ...).

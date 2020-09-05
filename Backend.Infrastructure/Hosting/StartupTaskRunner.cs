@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Backend.Web
+namespace Backend.Infrastructure.Hosting
 {
     public class StartupTaskRunner : IHostedService
     {

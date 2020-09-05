@@ -7,11 +7,11 @@ namespace Backend.Core.Features.Offers.Services
 {
     public interface IOfferService
     {
-        IAsyncEnumerable<Offer> All();
+        IAsyncEnumerable<OfferResponse> All();
 
-        Task<Offer> Store(Offer offer);
+        Task<OfferResponse> Store(OfferResponse offer);
 
-        IAsyncEnumerable<Offer> GetSuggested(IEnumerable<Interest> interests);
+        IAsyncEnumerable<OfferResponse> GetSuggested(IEnumerable<Interest> interests);
 
         Task<OfferBookingResult> Book(OfferBookingRequest offer);
     }

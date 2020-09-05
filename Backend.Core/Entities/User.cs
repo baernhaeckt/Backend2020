@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Backend.Core.Entities
 {
     public class User : Entity
     {
-        public string Email { get; set; } = string.Empty;
+        [BsonIgnore]
+        public string DisplayName => Firstname + " " + Lastname;
 
-        public string DisplayName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
 
         public Location Location { get; set; } = new Location();
 

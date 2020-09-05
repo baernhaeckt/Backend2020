@@ -13,12 +13,10 @@ namespace Backend.Core.Features.Offers.Controllers
     [ApiController]
     public class OffersController : ControllerBase
     {
-        public IOfferService OfferService { get; }
+        private readonly IOfferService _offerService;
 
-        public OffersController(IOfferService offerService)
-        {
-            OfferService = offerService;
-        }
+        public OffersController(IOfferService offerService) 
+            => _offerService = offerService;
 
         // GET: api/offers
         [AllowAnonymous]
@@ -26,31 +24,25 @@ namespace Backend.Core.Features.Offers.Controllers
         public async Task<GetAllOffersResponse> Get() 
             => new GetAllOffersResponse
         {
-            Offers = await OfferService.All().ToListAsync()
+            Offers = await _offerService.All().ToListAsync()
         };
 
 
         // POST api/offers/suggest
         [AllowAnonymous]
         [HttpPost("suggest")]
-        public IAsyncEnumerable<Offer> Suggest([FromBody] IEnumerable<Interest> interests)
-        {
-            return OfferService.GetSuggested(interests);
-        }
+        public IAsyncEnumerable<OfferResponse> Suggest([FromBody] IEnumerable<Interest> interests) 
+            => _offerService.GetSuggested(interests);
 
         // POST api/offers
         [HttpPost]
-        public Task<Offer> Create([FromBody] Offer offer)
-        {
-            return OfferService.Store(offer);
-        }
+        public Task<OfferResponse> Create([FromBody] OfferResponse offer) 
+            => _offerService.Store(offer);
 
 
         // POST api/offers/book
         [HttpPost("book")]
-        public Task<OfferBookingResult> Book([FromBody] OfferBookingRequest offerBookingRequest)
-        {
-            return OfferService.Book(offerBookingRequest);
-        }
+        public Task<OfferBookingResult> Book([FromBody] OfferBookingRequest offerBookingRequest) 
+            => _offerService.Book(offerBookingRequest);
     }
 }

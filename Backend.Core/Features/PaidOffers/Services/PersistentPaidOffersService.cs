@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
 using Backend.Infrastructure.Abstraction.Persistence;
@@ -8,28 +9,15 @@ namespace Backend.Core.Features.PaidOffers.Services
 {
     public class PersistentPaidOffersService : IPaidOffersService
     {
-        public PersistentPaidOffersService(IReader reader)
-        {
-            Reader = reader;
-        }
+        public PersistentPaidOffersService(IReader reader) => _reader = reader;
 
-        public IReader Reader { get; }
+        private readonly IReader _reader;
 
-        public IAsyncEnumerable<PaidOffer> All => GetAllFromReader();
+        public Task<IEnumerable<PaidOffer>> All => _reader.GetAllAsync<PaidOffer>();
 
-        public IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
+        public IAsyncEnumerable<PaidOffer> Suggest(OfferResponse selectedOffer)
         {
             throw new NotImplementedException();
-        }
-
-        private async IAsyncEnumerable<PaidOffer> GetAllFromReader()
-        {
-            var allOffers = await Reader.GetAllAsync<PaidOffer>();
-
-            foreach (var offer in allOffers)
-            {
-                yield return offer;
-            }
         }
     }
 }

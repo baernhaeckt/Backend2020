@@ -8,6 +8,7 @@ namespace Backend.Infrastructure.Hosting
         public static IServiceCollection AddInfrastructureHosting(this IServiceCollection services)
         {
             services.AddSingleton<IClock, SystemUtcClock>();
+            services.AddHostedService<StartupTaskRunner>();
             return services;
         }
     }

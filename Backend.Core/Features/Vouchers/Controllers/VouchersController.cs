@@ -32,7 +32,7 @@ namespace Backend.Core.Features.Vouchers.Controllers
         [HttpPost("{offerId}")]
         public async Task<VoucherResponse> Create(Guid offerId)
         {
-            var offerDbItem = await _writer.GetByIdOrThrowAsync<OfferDbItem>(offerId);
+            var offer = await _writer.GetByIdOrThrowAsync<Offer>(offerId);
 
             Guid voucherId = Guid.NewGuid();
 
@@ -45,11 +45,11 @@ namespace Backend.Core.Features.Vouchers.Controllers
             var publicTransportQrCode = new SvgQRCode(qrGenerator.CreateQrCode("sbb.ch", QRCodeGenerator.ECCLevel.L));
             string publicTransportQrSvg = publicTransportQrCode.GetGraphic(20);
 
-            var voucher = await _writer.InsertAsync(new Voucher(voucherId, offerDbItem, publicTransportQrSvg, voucherQrSvg, HttpContext.User.Id()));
+            var voucher = await _writer.InsertAsync(new Voucher(voucherId, offer, publicTransportQrSvg, voucherQrSvg, HttpContext.User.Id()));
 
-            Offer offer = new Offer();
-            offer.From(offerDbItem);
-            return new VoucherResponse(voucherId, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId, voucher.IsUsed);
+            OfferResponse offerResponse = new OfferResponse();
+            offerResponse.From(offer);
+            return new VoucherResponse(voucherId, offerResponse, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId, voucher.IsUsed);
         }
 
         [HttpPut("{voucherId}")]
@@ -86,7 +86,7 @@ namespace Backend.Core.Features.Vouchers.Controllers
                 return Unauthorized();
             }
 
-            Offer offer = new Offer();
+            OfferResponse offer = new OfferResponse();
             offer.From(voucher.Offer);
             return Ok(new VoucherResponse(voucherId, offer, voucher.PublicTransportQrCode, voucher.VoucherQrCode, voucher.CustomerId, voucher.IsUsed));
         }

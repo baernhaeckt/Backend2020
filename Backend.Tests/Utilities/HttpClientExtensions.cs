@@ -3,12 +3,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Backend.Core.Features.UserManagement.Requests;
-using Backend.Models;
+using Backend.Core.Features.UserManagement.Responses;
 using Newtonsoft.Json;
 
 namespace Backend.Tests.Utilities
 {
-    public static class HttpClientExtensionss
+    public static class HttpClientExtensions
     {
         public static async Task SignIn(this HttpClient client, string email, string password)
         {

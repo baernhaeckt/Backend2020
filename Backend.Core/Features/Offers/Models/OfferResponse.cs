@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Backend.Core.Entities;
-using Backend.Models;
 
 namespace Backend.Core.Features.Offers.Models
 {
-    public class Offer
+    public class OfferResponse
     {
         public Guid Id { get; set; }
 
@@ -21,13 +19,13 @@ namespace Backend.Core.Features.Offers.Models
 
         public Guid GuideId { get; set; }
 
-        public Guide Guide { get; set; }
+        public string GuideDisplayName { get; set; }
 
         public ICollection<string> Categories { get; set; }
 
-        public OfferDbItem To()
+        public Offer To()
         {
-            return new OfferDbItem
+            return new Offer
             {
                 Id = Id,
                 Name = Name,
@@ -38,7 +36,7 @@ namespace Backend.Core.Features.Offers.Models
             };
         }
 
-        public void From(OfferDbItem record)
+        public void From(Offer record)
         {
             Id = record.Id;
             Name = record.Name;
