@@ -16,37 +16,47 @@ namespace Backend.Web.Controllers
     {
         private readonly ISecurityTokenFactory _securityTokenFactory;
 
+        private readonly IPasswordStorage _passwordStorage;
+
         private readonly IWriter _writer;
 
-        public UsersController(ISecurityTokenFactory securityTokenFactory, IWriter writer)
+        public UsersController(ISecurityTokenFactory securityTokenFactory, IPasswordStorage passwordStorage, IWriter writer)
         {
             _securityTokenFactory = securityTokenFactory;
+            _passwordStorage = passwordStorage;
             _writer = writer;
         }
 
         [HttpPost(nameof(Login))]
         [AllowAnonymous]
-        public ActionResult<UserLoginResponse> Login([FromBody] UserLoginRequest request)
+        public async Task<ActionResult<UserLoginResponse>> Login([FromBody] UserLoginRequest request)
         {
+            var user = await _writer.FirstOrDefaultAsync<User>(u => u.Email == request.Email.ToLowerInvariant());
+            if(user == null || !_passwordStorage.Match(request.Password, user.PasswordHash))
+            {
+                return Unauthorized();
+            }
+
             var response = new UserLoginResponse
             {
-                Token = _securityTokenFactory.Create(Guid.NewGuid(), "DummyUser", Enumerable.Empty<string>())
+                Token = _securityTokenFactory.Create(user.Id, user.Email, Enumerable.Empty<string>())
             };
             Response.Headers.Add("Authorization", $"Bearer {response.Token}");
             return new ActionResult<UserLoginResponse>(response);
         }
 
-        [HttpPost(nameof(CreateDummy))]
+        [HttpPost(nameof(Register))]
         [AllowAnonymous]
-        public async Task<IActionResult> CreateDummy()
+        public async Task<ActionResult<UserLoginResponse>> Register([FromBody] RegisterUserRequest request)
         {
-            await _writer.InsertAsync(new User
-            {
-                DisplayName = "Test",
-                Email = "test@test.ch",
-            });
+            var user = await _writer.InsertAsync(new User {Email = request.Email, PasswordHash = _passwordStorage.Create(request.Password)});
 
-            return Ok();
+            var response = new UserLoginResponse
+            {
+                Token = _securityTokenFactory.Create(user.Id, user.Email, Enumerable.Empty<string>())
+            };
+            Response.Headers.Add("Authorization", $"Bearer {response.Token}");
+            return new ActionResult<UserLoginResponse>(response);
         }
     }
 }
