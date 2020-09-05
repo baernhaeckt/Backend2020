@@ -2,10 +2,12 @@
 using System.Threading.Tasks;
 using Backend.Models;
 using Backend.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Web.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class InterestsController : ControllerBase

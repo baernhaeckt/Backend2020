@@ -15,7 +15,7 @@ namespace Backend.Core.Features.Offers.Data
 {
     class OffersStartupTask : IStartupTask
     {
-        private const string FILE_PATH = "Resources.offers.json";
+        private const string FILE_PATH = "Features.Offers.Resources.offers.json";
 
         public IWriter Writer { get; }
         public IWebHostEnvironment Env { get; }
@@ -27,7 +27,7 @@ namespace Backend.Core.Features.Offers.Data
         }
 
         private Stream FileContentStream
-         => new EmbeddedFileProvider(Assembly.GetEntryAssembly())
+         => new EmbeddedFileProvider(Assembly.GetExecutingAssembly())
                 .GetFileInfo(FILE_PATH)
                 .CreateReadStream();
 
