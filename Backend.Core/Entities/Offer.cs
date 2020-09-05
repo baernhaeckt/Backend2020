@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Backend.Core.Entities
 {
@@ -17,5 +18,8 @@ namespace Backend.Core.Entities
         public Guid GuideId { get; set; }
 
         public ICollection<string> Categories { get; set; }
+
+        public double PriceTotal =>
+            IncludedItems.Sum(i => i.Price);
     }
 }
