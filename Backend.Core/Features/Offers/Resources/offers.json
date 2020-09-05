@@ -23,7 +23,7 @@
     "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
     "Categories": [
       "Berge",
-      "Wandern",
+      "Action",
       "Spass",
       "Land"
     ]
@@ -146,6 +146,7 @@
     "Categories": [
       "Land",
       "Klassisch",
+      "Erholung",
       "Spass"
     ]
   },
@@ -169,7 +170,8 @@
     "Categories": [
       "Land",
       "Berge",
-      "Wandern"
+      "Erholung",
+      "Action"
     ]
   },
   {
@@ -192,7 +194,7 @@
     "Categories": [
       "Stadt",
       "Fluss",
-      "Wandern"
+      "Action"
     ]
   },
   {
@@ -225,7 +227,8 @@
     "Categories": [
       "Berge",
       "Spass",
-      "Action"
+      "Action",
+      "Modern"
     ]
   },
   {
@@ -249,26 +252,8 @@
       "Stadt",
       "Spass",
       "Action",
-      "Unterhaltung"
-    ]
-  },
-  {
-    "id": "9a00d3d8-36e5-41bf-8417-97db7a967011",
-    "Name": "Ab ins Dälhölzli",
-    "Description": "Zusammen mit den Tierpfleger gehen sie in den Zoo und füttern die Tiere auch die Löwen.",
-    "IncludedItems": [
-      {
-        "Name": "Ticket",
-        "Description": "Bus ins Dälhölzli",
-        "Price": 5.00
-      }
-    ],
-    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
-    "Categories": [
-      "Stadt",
-      "Spass",
-      "Action",
-      "Unterhaltung"
+      "Unterhaltung",
+      "Modern"
     ]
   },
   {
@@ -310,7 +295,8 @@
     "Categories": [
       "Berge",
       "Spass",
-      "Action"
+      "Action",
+      "Modern"
     ]
   },
   {
@@ -357,7 +343,8 @@
       "Land",
       "Spass",
       "See",
-      "Klassisch"
+      "Klassisch",
+      "Erholung"
     ]
   },
   {
@@ -381,7 +368,8 @@
       "Land",
       "Spass",
       "See",
-      "Klassisch"
+      "Klassisch",
+      "Erholung"
     ]
   },
   {
@@ -410,7 +398,8 @@
       "Land",
       "Spass",
       "See",
-      "Action"
+      "Action",
+      "Modern"
     ]
   }
 ]

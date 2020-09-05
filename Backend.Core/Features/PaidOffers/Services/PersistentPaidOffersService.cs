@@ -22,25 +22,19 @@ namespace Backend.Core.Features.PaidOffers.Services
         public Task<IEnumerable<PaidOffer>> All => Reader.GetAllAsync<PaidOffer>();
 
 
-        public async IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
-        {
-            var recommendations = await RecommendationService
-                .GetOfferRecommendation(selectedOffer.Categories);
-
-            foreach (var recommendation in recommendations)
-            {
-                yield return await Load(recommendation);
-            }
-        }
-
         private async Task<PaidOffer> Load(RecommendationResult recommendation)
         {
             return await Reader.GetByIdOrThrowAsync<PaidOffer>(recommendation.OfferId);
         }
 
-        public IAsyncEnumerable<PaidOffer> Suggest(OfferResponse selectedOffer)
+        public async IAsyncEnumerable<PaidOffer> Suggest(OfferResponse selectedOffer)
         {
-            throw new System.NotImplementedException();
+            var recommendations = await RecommendationService.GetOfferRecommendation(selectedOffer.Categories);
+
+            foreach (var recommendation in recommendations)
+            {
+                yield return await Load(recommendation);
+            }
         }
     }
 }

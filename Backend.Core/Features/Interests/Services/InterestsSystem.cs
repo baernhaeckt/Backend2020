@@ -54,7 +54,7 @@ namespace Backend.Core.Features.Interests.Services
             => !LayerOneDone ? 0 : !LayerTwoDone ? 1 : !LayerThreeDone ? 2 : -1;
 
         public Interest NextInterestCheck 
-            => UnfinishedLayerIndex == -1 ? null : new Interest {Name = NextInterestCheckName};
+            => UnfinishedLayerIndex == -1 || String.IsNullOrEmpty(NextInterestCheckName) ? null : new Interest {Name = NextInterestCheckName};
 
         private string NextInterestCheckName
         {
@@ -95,14 +95,16 @@ namespace Backend.Core.Features.Interests.Services
         private static bool CheckLayerDone(int layerIndex, ICollection<Interest> interests)
         {
             return interests.Where(i => layeredInterests[layerIndex].Contains(i.Name)).Any(i => i.Match)
-                   || interests.Count(i => layeredInterests[layerIndex].Contains(i.Name)) ==
-                   layeredInterests[layerIndex].Count();
+                   || interests.Count(i => layeredInterests[layerIndex].Contains(i.Name)) == layeredInterests[layerIndex].Count();
         }
 
         private string GetOneNotUsedInterest(IEnumerable<string> interestOptions)
         {
             var options = interestOptions.Where(i => !Interests.Any(it => it.Name.Equals(i))).ToList();
-            return options[new Random().Next(0, options.Count())];
+            
+
+
+            return options.Count() == 0 ? string.Empty : options[new Random().Next(0, options.Count())];
         }
 
         public static InterestsSystem Of(ICollection<Interest> interests) => new InterestsSystem(interests);

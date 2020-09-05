@@ -32,7 +32,7 @@ namespace Backend.Core.Features.Offers.Controllers
         [AllowAnonymous]
         [HttpPost("suggest")]
         public IAsyncEnumerable<OfferResponse> Suggest([FromBody] IEnumerable<Interest> interests) 
-            => _offerService.GetSuggested(interests);
+            => interests.Any(i => i.Match) ? _offerService.GetSuggested(interests) : _offerService.All();
 
         // POST api/offers
         [HttpPost]

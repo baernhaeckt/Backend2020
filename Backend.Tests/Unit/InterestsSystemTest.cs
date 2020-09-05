@@ -136,5 +136,18 @@ namespace Backend.Tests.Unit
                 || nextInterest.Name.Equals("Klassisch")
                 || nextInterest.Name.Equals("Unterhaltung"));
         }
+
+        [Fact]
+        public void ShouldNotFailForCase_0001()
+        {
+            var sut = InterestsSystem.Of(new[] {
+                    new Interest { Name = "Land", Match = true },
+                    new Interest { Name = "Berge", Match = false },
+                    new Interest { Name = "Wasser", Match = false }
+                });
+
+            var nextInterest = sut.NextInterestCheck;
+            Assert.Null(nextInterest);
+        }
     }
 }
