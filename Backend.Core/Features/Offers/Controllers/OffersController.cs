@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Backend.Core.Features.Offers.Controllers;
 using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.Offers.Services;
 using Backend.Models;

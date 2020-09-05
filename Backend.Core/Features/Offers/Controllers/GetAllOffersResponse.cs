@@ -1,5 +1,5 @@
-﻿using Backend.Core.Features.Offers.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Backend.Core.Features.Offers.Models;
 
 namespace Backend.Core.Features.Offers.Controllers
 {

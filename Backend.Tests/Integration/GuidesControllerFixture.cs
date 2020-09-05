@@ -24,7 +24,6 @@ namespace Backend.Tests.Integration
             var uri = new Uri("api/guides", UriKind.Relative);
             HttpResponseMessage response = await _context.NewTestUserHttpClient.GetAsync(uri);
             var result = await response.OnSuccessDeserialize<List<User>>();
-            
             Assert.NotEmpty(result);
             Assert.True(result.All(u => u.Roles.Single()== Roles.Guide));
         }

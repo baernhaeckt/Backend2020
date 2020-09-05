@@ -1,10 +1,8 @@
-﻿using Backend.Core.Entities;
+﻿using System;
+using System.Collections.Generic;
+using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
 using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Backend.Core.Features.PaidOffers.Services
 {
@@ -15,6 +13,15 @@ namespace Backend.Core.Features.PaidOffers.Services
             Reader = reader;
         }
 
+        public IReader Reader { get; }
+
+        public IAsyncEnumerable<PaidOffer> All => GetAllFromReader();
+
+        public IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
+        {
+            throw new NotImplementedException();
+        }
+
         private async IAsyncEnumerable<PaidOffer> GetAllFromReader()
         {
             var allOffers = await Reader.GetAllAsync<PaidOffer>();
@@ -23,16 +30,6 @@ namespace Backend.Core.Features.PaidOffers.Services
             {
                 yield return offer;
             }
-
-        }
-
-        public IAsyncEnumerable<PaidOffer> All => GetAllFromReader();
-
-        public IReader Reader { get; }
-
-        public IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
-        {
-            throw new NotImplementedException();
         }
     }
 }

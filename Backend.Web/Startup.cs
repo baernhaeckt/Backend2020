@@ -1,6 +1,5 @@
 using Backend.Core.Features.Guiding;
 using Backend.Core.Features.Offers;
-using Backend.Core.Features.Offers.Services;
 using Backend.Core.Features.PaidOffers;
 using Backend.Core.Features.UserManagement;
 using Backend.Infrastructure.Hosting;
@@ -10,7 +9,6 @@ using Backend.Web.Diagnostics;
 using Backend.Web.Middleware;
 using Backend.Web.Services;
 using Backend.Web.Setup;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Configuration;
