@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Backend.Core.Entities;
+using Backend.Core.Features.Guiding.Models;
 using Backend.Tests.Utilities;
 using Xunit;
 
@@ -23,9 +23,8 @@ namespace Backend.Tests.Integration
 
             var uri = new Uri("api/guides", UriKind.Relative);
             HttpResponseMessage response = await _context.NewTestUserHttpClient.GetAsync(uri);
-            var result = await response.OnSuccessDeserialize<List<User>>();
-            Assert.NotEmpty(result);
-            Assert.True(result.All(u => u.Roles.Single()== Roles.Guide));
+            var result = await response.OnSuccessDeserialize<List<GuideResponse>>();
+            Assert.Contains(result, g => g.DisplayName == "Hans Meier");
         }
     }
 }

@@ -5,7 +5,6 @@ using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.Recommendation.Services;
 using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
 
 namespace Backend.Core.Features.Offers.Services
 {

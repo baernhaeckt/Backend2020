@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Backend.Core.Entities;
 using Backend.Core.Features.Interests.Services;
-using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
