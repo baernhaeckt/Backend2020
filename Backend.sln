@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{AF59A7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend.Core", "Backend.Core\Backend.Core.csproj", "{0B59799C-DC5E-44E6-9433-D6B06AD42DA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.Infrastructure.Abstraction", "Backend.Infrastructure.Abstraction\Backend.Infrastructure.Abstraction.csproj", "{92FB3E4C-4D91-4D9D-B842-E2271417FCBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend.Infrastructure.Abstraction", "Backend.Infrastructure.Abstraction\Backend.Infrastructure.Abstraction.csproj", "{92FB3E4C-4D91-4D9D-B842-E2271417FCBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

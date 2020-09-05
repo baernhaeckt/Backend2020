@@ -1,4 +1,5 @@
 using Backend.Core.Features.Guiding;
+using Backend.Core.Features.Offers;
 using Backend.Core.Features.UserManagement;
 using Backend.Infrastructure.Hosting;
 using Backend.Infrastructure.Persistence;
@@ -48,6 +49,7 @@ namespace Backend.Web
             // Features
             services.AddFeatureUserManagement();
             services.AddFeatureGuiding();
+            services.AddFeatureOffers();
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)

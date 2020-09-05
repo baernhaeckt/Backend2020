@@ -19,5 +19,17 @@ namespace Backend.Web.MongoDB
         public Guid GuideId { get; set; }
 
         public ICollection<string> Categories { get; set; }
+
+        public static OfferDbItem Of(Offer offer)
+        {
+            return new OfferDbItem
+            {
+                Name = offer.Name,
+                Description = offer.Description,
+                Categories = offer.Categories,
+                GuideId = offer.GuideId,
+                IncludedItems = offer.IncludedItems
+            };
+        }
     }
 }

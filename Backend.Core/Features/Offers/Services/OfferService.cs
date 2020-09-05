@@ -15,9 +15,8 @@ namespace Backend.Web.Services
             Writer = writer;
         }
 
-        private Offer Convert(OfferDbItem dbOffer)
-        {
-            return new Offer
+        private Offer Convert(OfferDbItem dbOffer) 
+            => new Offer
             {
                 Id = dbOffer.Id,
                 Name = dbOffer.Name,
@@ -26,7 +25,6 @@ namespace Backend.Web.Services
                 GuideId = dbOffer.GuideId,
                 IncludedItems = dbOffer.IncludedItems
             };
-        }
 
         public async IAsyncEnumerable<Offer> All()
         {
@@ -48,16 +46,7 @@ namespace Backend.Web.Services
         }
 
         public async Task<Offer> Store(Offer offer)
-        {
-            return Convert(await Writer.InsertAsync(new OfferDbItem
-            {
-                Name = offer.Name,
-                Description = offer.Description,
-                Categories = offer.Categories,
-                GuideId = offer.GuideId,
-                IncludedItems = offer.IncludedItems
-            }));
-        }
+         =>  Convert(await Writer.InsertAsync(OfferDbItem.Of(offer)));
 
         public IAsyncEnumerable<Offer> GetSuggested(IEnumerable<Interest> interests)
         {
