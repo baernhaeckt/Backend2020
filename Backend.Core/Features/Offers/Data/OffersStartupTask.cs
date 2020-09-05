@@ -26,15 +26,15 @@ namespace Backend.Core.Features.Offers.Data
                 .GetFileInfo(FilePath)
                 .CreateReadStream();
 
-        private async Task<IEnumerable<Offer>> GetOffersFromFile()
+        private async Task<IEnumerable<OfferResponse>> GetOffersFromFile()
         {
             await using var stream = FileContentStream;
-            return await JsonSerializer.DeserializeAsync<IEnumerable<Offer>>(stream);
+            return await JsonSerializer.DeserializeAsync<IEnumerable<OfferResponse>>(stream);
         }
 
         public async Task ExecuteAsync(CancellationToken cancellationToken)
         {
-            if (await _writer.CountAsync<OfferDbItem>() > 1)
+            if (await _writer.CountAsync<Offer>() > 1)
             {
                 return;
             }

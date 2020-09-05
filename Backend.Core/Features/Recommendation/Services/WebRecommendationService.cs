@@ -31,7 +31,7 @@ namespace Backend.Core.Features.Recommendation.Services
             return await Get("offers", categories);
         }
 
-        public async Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(Offer offer)
+        public async Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(OfferResponse offer)
         {
             return await Get("paidOffers", offer.Categories);
         }

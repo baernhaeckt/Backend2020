@@ -1,4 +1,5 @@
 using Backend.Core.Features.Guiding;
+using Backend.Core.Features.Interests;
 using Backend.Core.Features.Newsfeed;
 using Backend.Core.Features.Offers;
 using Backend.Core.Features.PaidOffers;
@@ -9,7 +10,6 @@ using Backend.Infrastructure.Persistence;
 using Backend.Infrastructure.Security;
 using Backend.Web.Diagnostics;
 using Backend.Web.Middleware;
-using Backend.Web.Services;
 using Backend.Web.Setup;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -40,13 +40,10 @@ namespace Backend.Web
             services.AddSignalR();
             var healthChecksBuilder = services.AddHealthChecks();
 
-            services.AddTransient<InterestsService>();
-
             // Infrastructure
             services.AddInfrastructurePersistence(_configuration, healthChecksBuilder);
             services.AddInfrastructureSecurity(_hostEnvironment);
             services.AddInfrastructureHosting();
-            services.AddHostedService<StartupTaskRunner>();
 
             // Features
             services.AddFeatureUserManagement();
@@ -54,6 +51,7 @@ namespace Backend.Web
             services.AddFeatureOffers();
             services.AddFeaturePaidOffers();
             services.AddFeatureRecommendation();
+            services.AddFeatureInterests();
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)

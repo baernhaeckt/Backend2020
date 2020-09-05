@@ -1,5 +1,5 @@
+using Backend.Core.Features.Interests.Services;
 using Backend.Models;
-using Backend.Web.Services;
 using Xunit;
 
 namespace Backend.Tests.Unit

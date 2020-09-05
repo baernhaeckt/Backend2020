@@ -8,8 +8,13 @@ using System.Reflection;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Backend.Core.Entities;
+using Backend.Infrastructure.Abstraction.Hosting;
+using Backend.Infrastructure.Abstraction.Persistence;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 
-namespace Backend.Core.Features.Offers.PaidOffers
+namespace Backend.Core.Features.PaidOffers.Data
 {
     class PaidOffersStartupTask : IStartupTask
     {

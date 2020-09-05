@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Backend.Core.Features.Offers.Models;
 
 namespace Backend.Core.Entities
 {
-    public class OfferDbItem : Entity
+    public class Offer : Entity
     {
         public string Name { get; set; }
 

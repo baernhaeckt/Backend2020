@@ -47,10 +47,94 @@ namespace Backend.Core.Features.Guiding.Data
                 },
                 new User
                 {
-                    Firstname = "Hans",
-                    Lastname = "Müller",
+                    Firstname = "Reto",
+                    Lastname = "Jost",
                     Description = "Voll der Botscha spieler",
-                    Email = "hans.mueller@test.ch",
+                    Email = "reto.jost@test.ch",
+                    Languages = new Collection<string>
+                    {
+                        "en",
+                        "de"
+                    },
+                    Roles = new List<string>{ Roles.Guide },
+                    PasswordHash = _passwordStorage.Create("test")
+                },
+                new User
+                {
+                    Firstname = "Veronika",
+                    Lastname = "Haenni",
+                    Description = "Voll der Botscha spieler",
+                    Email = "veronika.haenni@test.ch",
+                    Languages = new Collection<string>
+                    {
+                        "en",
+                        "de"
+                    },
+                    Roles = new List<string>{ Roles.Guide },
+                    PasswordHash = _passwordStorage.Create("test")
+                },
+                new User
+                {
+                    Firstname = "Mario",
+                    Lastname = "Scholz",
+                    Description = "Voll der Botscha spieler",
+                    Email = "mario.scholz@test.ch",
+                    Languages = new Collection<string>
+                    {
+                        "en",
+                        "de"
+                    },
+                    Roles = new List<string>{ Roles.Guide },
+                    PasswordHash = _passwordStorage.Create("test")
+                },
+                new User
+                {
+                    Firstname = "Mike",
+                    Lastname = "Schroeder",
+                    Description = "Voll der Botscha spieler",
+                    Email = "mike.schroeder@test.ch",
+                    Languages = new Collection<string>
+                    {
+                        "en",
+                        "de"
+                    },
+                    Roles = new List<string>{ Roles.Guide },
+                    PasswordHash = _passwordStorage.Create("test")
+                },
+                new User
+                {
+                    Firstname = "Olf",
+                    Lastname = "Dagobert",
+                    Description = "Voll der Botscha spieler",
+                    Email = "olf.dagobert@test.ch",
+                    Languages = new Collection<string>
+                    {
+                        "en",
+                        "de"
+                    },
+                    Roles = new List<string>{ Roles.Guide },
+                    PasswordHash = _passwordStorage.Create("test")
+                },
+                new User
+                {
+                    Firstname = "Anna",
+                    Lastname = "Lehmann",
+                    Description = "Voll der Botscha spieler",
+                    Email = "anna.lehmann@test.ch",
+                    Languages = new Collection<string>
+                    {
+                        "en",
+                        "de"
+                    },
+                    Roles = new List<string>{ Roles.Guide },
+                    PasswordHash = _passwordStorage.Create("test")
+                },
+                new User
+                {
+                    Firstname = "Ursula",
+                    Lastname = "Holzmann",
+                    Description = "Voll der Botscha spieler",
+                    Email = "ursula.holzmann@test.ch",
                     Languages = new Collection<string>
                     {
                         "en",

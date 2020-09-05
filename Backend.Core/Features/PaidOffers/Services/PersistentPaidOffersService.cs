@@ -36,15 +36,5 @@ namespace Backend.Core.Features.PaidOffers.Services
         {
             return await Reader.GetByIdOrThrowAsync<PaidOffer>(recommendation.OfferId);
         }
-
-        private async IAsyncEnumerable<PaidOffer> GetAllFromReader()
-        {
-            var allOffers = await Reader.GetAllAsync<PaidOffer>();
-
-            foreach (var offer in allOffers)
-            {
-                yield return offer;
-            }
-        }
     }
 }
