@@ -6,7 +6,6 @@ using System.Linq;
 using System.Security.Claims;
 using Backend.Infrastructure.Abstraction.Security;
 using Microsoft.IdentityModel.Tokens;
-using ClaimTypes = Backend.Infrastructure.Abstraction.Security.ClaimTypes;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
 namespace Backend.Infrastructure.Security
@@ -24,7 +23,7 @@ namespace Backend.Infrastructure.Security
             var now = DateTime.Now;
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.UserId, id.ToString()),
+                new Claim(Core.ClaimTypes.UserId, id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, subject),
                 new Claim(JwtRegisteredClaimNames.Sub, subject),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

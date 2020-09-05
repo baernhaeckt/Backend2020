@@ -11,6 +11,7 @@ namespace Backend.Infrastructure.Security
             // Security Utilities
             services.AddSingleton<ISecurityTokenFactory, JwtSecurityTokenFactory>();
             services.AddSingleton<ISecurityKeyProvider, SymmetricSecurityKeyProvider>();
+            services.AddSingleton<IPasswordStorage, HmacSha512PasswordStorage>();
 
             return services;
         }
