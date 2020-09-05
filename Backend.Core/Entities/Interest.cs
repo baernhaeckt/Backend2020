@@ -1,4 +1,4 @@
-﻿namespace Backend.Models
+﻿namespace Backend.Core.Entities
 {
     public class Interest
     {

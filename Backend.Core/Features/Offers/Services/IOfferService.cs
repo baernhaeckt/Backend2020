@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
-using Backend.Models;
 
 namespace Backend.Core.Features.Offers.Services
 {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Core.Entities;
+using Backend.Core.Features.Guiding.Models;
 using Backend.Infrastructure.Abstraction.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,9 @@ namespace Backend.Core.Features.Guiding.Controllers
 
         // GET: api/<GuidesController>
         [HttpGet]
-        public async Task<IEnumerable<User>> Get()
+        public async Task<IEnumerable<GuideResponse>> Get()
         {
-            var guides = await _reader.WhereAsync<User>(u => u.Roles.Contains(Roles.Guide));
+            var guides = await _reader.WhereAsync<User, GuideResponse>(u => u.Roles.Contains(Roles.Guide), u => new GuideResponse(u.Id, u.DisplayName, u.Languages));
             return guides;
         }
     }

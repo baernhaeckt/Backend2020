@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Backend.Models;
+using Backend.Core.Entities;
 
 namespace Backend.Core.Features.Interests.Services
 {
