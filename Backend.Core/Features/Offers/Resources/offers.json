@@ -273,7 +273,7 @@
   },
   {
     "id": "7f834f66-6efb-4c3e-9914-25092b57ab3c",
-    "Name": "Ab ins Dälhölzli",
+    "Name": "Ab ins Dählhölzli",
     "Description": "Zusammen mit den Tierpfleger gehen sie in den Zoo und füttern die Tiere auch die Löwen.",
     "IncludedItems": [
       {
@@ -288,6 +288,129 @@
       "Spass",
       "Action",
       "Unterhaltung"
+    ]
+  },
+  {
+    "id": "44dc4741-ab94-48d1-a152-714d0680eb2d",
+    "Name": "Basejumping in Lauterbrunnen",
+    "Description": "Zusammen mit dem Basejunp Dude aus Lauterbrunnen kannst du 3 Sekunden freien Fall geniessen, wir hoffen nicht mehr.",
+    "IncludedItems": [
+      {
+        "Name": "Ticket",
+        "Description": "Zug nach Lauterbrunnen",
+        "Price": 35.00
+      },
+      {
+        "Name": "Ausrüstung",
+        "Description": "Fallschirm usw.",
+        "Price": 105.00
+      }
+    ],
+    "GuideId": "6a74f3f1-40dc-4590-9f75-3c6f59581d34",
+    "Categories": [
+      "Berge",
+      "Spass",
+      "Action"
+    ]
+  },
+  {
+    "id": "bc750e04-bb50-4dc0-a1db-5239e53e34f4",
+    "Name": "Zu Fuss auf das Jungfraujoch",
+    "Description": "Mit Bergführer Hans kletterst du auf das Jungfraujoch, er erzählt dir viele Geschichten aus seiner Jugend.",
+    "IncludedItems": [
+      {
+        "Name": "Ticket",
+        "Description": "Zug nach Grindelwald",
+        "Price": 55.00
+      },
+      {
+        "Name": "Ausrüstung",
+        "Description": "Kletterzeugs usw.",
+        "Price": 105.00
+      },
+      {
+        "Name": "Essen",
+        "Description": "Fondue",
+        "Price": 11.00
+      }
+    ],
+    "GuideId": "b1ee7b15-1976-4152-ba15-e13f0e70e699",
+    "Categories": [
+      "Berge",
+      "Spass",
+      "Action"
+    ]
+  },
+  {
+    "id": "ba21170b-a597-476b-be46-ed0202049141",
+    "Name": "Salat ernten im Seeland",
+    "Description": "Du kannst einen Tag lang mit dem Bauer Salat ernten, am schluss bekommst du noch eine feinen Salat als essen.",
+    "IncludedItems": [
+      {
+        "Name": "Ticket",
+        "Description": "Zug nach Biel",
+        "Price": 12.00
+      }
+    ],
+    "GuideId": "bc851f39-92b7-4ab5-8b0c-6412e433281a",
+    "Categories": [
+      "Land",
+      "Spass",
+      "See",
+      "Klassisch"
+    ]
+  },
+  {
+    "id": "a7ea847e-b875-4f1b-90f6-ab7830771cf2",
+    "Name": "Trauben lesen in Twann",
+    "Description": "Einen Tag Trauben lesen und jede halbe Stunde mit einen Glas Weisswein anstossen.",
+    "IncludedItems": [
+      {
+        "Name": "Ticket",
+        "Description": "Zug nach Twann",
+        "Price": 19.00
+      },
+      {
+        "Name": "Verpflegung",
+        "Description": "Essen am mittag",
+        "Price": 19.00
+      }
+    ],
+    "GuideId": "bc851f39-92b7-4ab5-8b0c-6412e433281a",
+    "Categories": [
+      "Land",
+      "Spass",
+      "See",
+      "Klassisch"
+    ]
+  },
+  {
+    "id": "c60836f2-a873-4bec-b0a6-1bdd2923ff16",
+    "Name": "Wakeboarden auf dem Thunersee",
+    "Description": "Einen Tag mit dem Surf Dude auf dem Thunersee Wakeboarden und dazu einen schönen Sonnenbrand holen.",
+    "IncludedItems": [
+      {
+        "Name": "Ticket",
+        "Description": "Zug nach Thun",
+        "Price": 17.00
+      },
+      {
+        "Name": "Boot",
+        "Description": "Treibstoff usw.",
+        "Price": 67.00
+      },
+      {
+        "Name": "Sonnencreme",
+        "Description": "1 Liter der besten Sonnencreme",
+        "Price": 67.00
+      }
+    ],
+    "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
+    "Categories": [
+      "Land",
+      "Spass",
+      "See",
+      "Action"
     ]
   }
 ]
