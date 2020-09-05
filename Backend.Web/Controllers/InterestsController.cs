@@ -12,11 +12,11 @@ namespace Backend.Web.Controllers
     [ApiController]
     public class InterestsController : ControllerBase
     {
-        InterestsService interestsService;
+        private readonly InterestsService _interestsService;
 
         public InterestsController(InterestsService interestsService)
         {
-            this.interestsService = interestsService;
+            _interestsService = interestsService;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Backend.Web.Controllers
         [HttpGet]
         public Task<Interest> Get()
         {
-            return interestsService.GetNextInterest();
+            return _interestsService.GetNextInterest();
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Backend.Web.Controllers
         [HttpPost("next")]
         public Task<Interest> Post([FromBody] ICollection<Interest> selectedInterests)
         {
-            return interestsService.GetNextInterest(selectedInterests);
+            return _interestsService.GetNextInterest(selectedInterests);
         }
     }
 }
