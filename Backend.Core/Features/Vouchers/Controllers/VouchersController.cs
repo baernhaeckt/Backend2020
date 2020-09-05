@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
@@ -18,7 +19,7 @@ namespace Backend.Core.Features.Vouchers.Controllers
 
         public VouchersController(IWriter writer) => _writer = writer;
 
-        [HttpPost]
+        [HttpPost("{offerId}")]
         public async Task<VoucherResponse> Create(Guid offerId)
         {
             var offerDbItem = await _writer.GetByIdOrThrowAsync<OfferDbItem>(offerId);
@@ -42,6 +43,10 @@ namespace Backend.Core.Features.Vouchers.Controllers
         }
 
         [HttpGet]
+        public async Task<IEnumerable<VouchersResponse>> Get()
+            => await _writer.WhereAsync<Voucher, VouchersResponse>(v => v.CustomerId == HttpContext.User.Id(), v => new VouchersResponse(v.Id, v.Offer.Name));
+
+        [HttpGet("{id}")]
         public async Task<VoucherResponse> Get(Guid id)
         {
             var voucher = await _writer.GetByIdOrThrowAsync<Voucher>(id);
