@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading.Tasks;
 
 using Backend.Core.Entities;
@@ -39,11 +40,11 @@ namespace Backend.Core.Features.Vouchers.Controllers
             string url = $"https://baernhaeckt2020.z19.web.core.windows.net/voucher/{voucherId}";
 
             var qrGenerator = new QRCodeGenerator();
-            var voucherQrCode = new SvgQRCode(qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.L));
-            string voucherQrSvg = voucherQrCode.GetGraphic(20);
+            var voucherQrCode = new SvgQRCode(qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.M));
+            string voucherQrSvg = voucherQrCode.GetGraphic(new Size(300, 300), Color.Black, Color.White, false);
 
-            var publicTransportQrCode = new SvgQRCode(qrGenerator.CreateQrCode("sbb.ch", QRCodeGenerator.ECCLevel.L));
-            string publicTransportQrSvg = publicTransportQrCode.GetGraphic(20);
+            var publicTransportQrCode = new SvgQRCode(qrGenerator.CreateQrCode("bls.ch", QRCodeGenerator.ECCLevel.M));
+            string publicTransportQrSvg = publicTransportQrCode.GetGraphic(new Size(300, 300), Color.Black, Color.White, false);
 
             var voucher = await _writer.InsertAsync(new Voucher(voucherId, offer, publicTransportQrSvg, voucherQrSvg, HttpContext.User.Id()));
 
