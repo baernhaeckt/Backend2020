@@ -1,25 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Backend.Core.Entities;
 using Backend.Core.Features.Offers.Models;
+using Backend.Core.Features.Recommendation.Services;
 using Backend.Infrastructure.Abstraction.Persistence;
 
 namespace Backend.Core.Features.PaidOffers.Services
 {
     public class PersistentPaidOffersService : IPaidOffersService
     {
-        public PersistentPaidOffersService(IReader reader)
+        public PersistentPaidOffersService(IReader reader, IRecommendationService recommendationService)
         {
             Reader = reader;
+            RecommendationService = recommendationService;
         }
 
-        public IReader Reader { get; }
+        private IReader Reader { get; }
+
+        private IRecommendationService RecommendationService { get; }
 
         public IAsyncEnumerable<PaidOffer> All => GetAllFromReader();
 
-        public IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
+        public async IAsyncEnumerable<PaidOffer> Suggest(Offer selectedOffer)
         {
-            throw new NotImplementedException();
+            var recommendations = await RecommendationService
+                .GetOfferRecommendation(selectedOffer.Categories);
+
+            foreach (var recommendation in recommendations)
+            {
+                yield return await Load(recommendation);
+            }
+        }
+
+        private async Task<PaidOffer> Load(RecommendationResult recommendation)
+        {
+            return await Reader.GetByIdOrThrowAsync<PaidOffer>(recommendation.OfferId);
         }
 
         private async IAsyncEnumerable<PaidOffer> GetAllFromReader()

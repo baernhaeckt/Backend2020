@@ -6,12 +6,12 @@
 
   <ItemGroup>
     <None Remove="Features\Offers\Resources\offers.json" />
-    <None Remove="Features\PaidOffers\Resources\offers.json" />
+    <None Remove="Features\PaidOffers\Resources\data.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Features\Offers\Resources\offers.json" />
-    <EmbeddedResource Include="Features\PaidOffers\Resources\offers.json" />
+    <EmbeddedResource Include="Features\PaidOffers\Resources\data.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +26,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Backend.Infrastructure.Abstraction\Backend.Infrastructure.Abstraction.csproj" />
     <ProjectReference Include="..\Backend.Models\Backend.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Backend\Core\Features\Offers\Data\" />
   </ItemGroup>
 
 </Project>
