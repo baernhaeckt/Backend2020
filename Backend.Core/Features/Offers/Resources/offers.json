@@ -2,7 +2,7 @@
   {
     "Id": "3fbcb9c2-c8c8-4270-ad12-ad4c203c5d31",
     "Name": "Angeln am Oeschinensee",
-    "Description": "Sie verbringen den ganzen Tag in den Bergen am schönen Oeschinensee und rudern mit dem Gummiboot und der Angel auf dem See herum. Dabei haben Sie viel Spass",
+    "Description": "Du verbringst den ganzen Tag in den Bergen am schönen Oeschinensee und ruderst mit dem Gummiboot und der Angel auf dem See herum. Dabei haben wir viel Spass.",
     "IncludedItems": [
       {
         "Name": "Zug Ticket",
@@ -30,8 +30,8 @@
   },
   {
     "Id": "8c86f8e7-da3c-480f-ae45-061fce4c0dd1",
-    "Name": "Aarebötlen",
-    "Description": "Sie fahren von Thun nach Bern mit dem Gummibot und essen am mittag gemütlich ein Entrecote am Fluss",
+    "Name": "Aareböötlen",
+    "Description": "Wir fahren von Thun nach Bern mit dem Gummibot und essen am Mittag gemütlich ein Entrecote am Fluss.",
     "IncludedItems": [
       {
         "Name": "Zug Ticket",
@@ -55,7 +55,7 @@
   {
     "id": "633194d8-2356-4131-b586-32c1511027db",
     "Name": "Petanque spielen",
-    "Description": "Sie lernen auf der Pläfä Petanque spielen und können dazu immer ein Bier geniessen.",
+    "Description": "Du lernst auf der Pläfä Petanque spielen und wir geniessen dazu ein feiner Berner Bier.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -78,7 +78,7 @@
   {
     "id": "8955379a-424f-41c7-88bd-d2cbe0657338",
     "Name": "Stall misten",
-    "Description": "Sie gehen auf einen Bauernhof und putzen zusammen mit dem Bauern die Scheisse der Kühe. Der Bauer schweizerörgellt dazu noch",
+    "Description": "Du gehst auf einen Bauernhof und putzt zusammen mit mir die Scheisse der Kühe. Ich schweizerörgelle dazu noch.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -101,7 +101,7 @@
   {
     "id": "ae6e142b-886a-4a42-85b4-eed039f2fa80",
     "Name": "Kühen melken",
-    "Description": "Sie gehen auf einen Bauernhof und melken zusammen mit dem Bauern die Kühe. Früh aufstehen ist angesagt. Zum Schluss gibt es Glas Milch",
+    "Description": "Du kommst auf meinen Bauernhof und melkst zusammen mit mir die Kühe. Früh aufstehen ist angesagt! Zum Schluss gibt es Glas Milch",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -129,7 +129,7 @@
   {
     "id": "a3878767-69a0-4749-8b68-092602759846",
     "Name": "Chäsen",
-    "Description": "Sie machen Käse zusammen mit dem Käser, dabei schaut er nur zu und Sie müssen alles machen.",
+    "Description": "Du machst Käse zusammen mit dem Käser, dabei schaut er nur zu und du musst alles machen.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -139,7 +139,7 @@
       {
         "Name": "Käse",
         "Description": "Ein Stück Emmentaler",
-        "Price": 1.00
+        "Price": 4.00
       }
     ],
     "GuideId": "9b5beddd-2632-4956-bbe3-702bef8ef5ae",
@@ -153,7 +153,7 @@
   {
     "id": "2dc0f6df-e98f-4392-9946-3b3bf60aa639",
     "Name": "Wandern aufs Stockhorn",
-    "Description": "Sie wandern zusammen mit einem Uhreinwohner auf das Berg, das schöne Stockhorn. Er erzählt dazu ständig Witze.",
+    "Description": "Du wanderst zusammen mit einem Ureinwohner auf das Berg, das schöne Stockhorn. Er erzählt dazu ständig Witze.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -162,7 +162,7 @@
       },
       {
         "Name": "Unterhaltung",
-        "Description": "Es werden Witzer erzählt",
+        "Description": "Es werden Witzer erzählt und Trinkgeld gezahlt",
         "Price": 1.00
       }
     ],
@@ -177,7 +177,7 @@
   {
     "id": "3cbcb723-9642-4000-9887-42d5a07f5a90",
     "Name": "Bungeesurfen auf der Aare",
-    "Description": "Sie erhalten ein Surfbrett und gehen zusammen mit dem besten Bungeesurfer auf die Aare.",
+    "Description": "Du erhälst ein Surfbrett und gehst zusammen mit dem besten Bungeesurfer auf die Aare. Was für ein Spass!",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -194,13 +194,14 @@
     "Categories": [
       "Stadt",
       "Fluss",
-      "Action"
+      "Action",
+      "Spass"
     ]
   },
   {
     "id": "1c154bdf-4986-45bd-aefb-b7453ab207a1",
     "Name": "Slacklinen über den Wolken",
-    "Description": "Zusammen mit dem Slackline Dude aus Köniz gehen sie auf einen Hoger oder Berg und laufen dort über das Tobel auf der Slackline",
+    "Description": "Zusammen mit dem Slackline Dude aus Köniz gehst du auf einen Hoger oder Berg und balancierst dort über das Tobel auf der Slackline",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -234,7 +235,7 @@
   {
     "id": "d955fb13-4ca5-4b60-9c4b-3b8f397ea3a5",
     "Name": "Gin trinken",
-    "Description": "Sie gehen mit dem Gin Dude in die Matte Brennerei und saufen dort den ganzen Abend Gin.",
+    "Description": "Du gehst mit dem Gin Dude in die Matte Brennerei und saufst dort den ganzen Abend Gin.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -243,7 +244,7 @@
       },
       {
         "Name": "Gin",
-        "Description": "Gin soviel du willst",
+        "Description": "Flatrate Gin soviel du willst",
         "Price": 100.00
       }
     ],
@@ -259,7 +260,7 @@
   {
     "id": "7f834f66-6efb-4c3e-9914-25092b57ab3c",
     "Name": "Ab ins Dählhölzli",
-    "Description": "Zusammen mit den Tierpfleger gehen sie in den Zoo und füttern die Tiere auch die Löwen.",
+    "Description": "Zusammen mit den Tierpfleger gehst du in den Zoo und fütterst die Tiere, auch die Löwen.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -330,7 +331,7 @@
   {
     "id": "ba21170b-a597-476b-be46-ed0202049141",
     "Name": "Salat ernten im Seeland",
-    "Description": "Du kannst einen Tag lang mit dem Bauer Salat ernten, am schluss bekommst du noch eine feinen Salat als essen.",
+    "Description": "Du kannst einen Tag lang mit dem Bauer Salat ernten, am schluss bekommst du noch eine feinen Salat zum essen.",
     "IncludedItems": [
       {
         "Name": "Ticket",
@@ -388,10 +389,10 @@
         "Price": 67.00
       },
       {
-        "Name": "Sonnencreme",
-        "Description": "1 Liter der besten Sonnencreme",
+        "Name": "Aloe vera",
+        "Description": "1 Liter des besten Aprés Soleil",
         "Price": 67.00
-      }
+      },
     ],
     "GuideId": "5d017691-a2b7-4af8-b14e-357879746dc6",
     "Categories": [
