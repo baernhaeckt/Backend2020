@@ -2,7 +2,7 @@ using Backend.Models;
 using Backend.Web.Services;
 using Xunit;
 
-namespace Backend.Test
+namespace Backend.Tests.Unit
 {
     public class InterestsSystemTest
     {
