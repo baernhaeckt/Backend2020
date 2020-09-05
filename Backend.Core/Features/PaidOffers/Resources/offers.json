@@ -1,0 +1,46 @@
+[
+  {
+    "Name": "Stadtrundfahrt durch Biel",
+    "Description": "Lerne Biel kennen und lieben",
+    "Ranking": 16,
+    "Location": "Biel",
+    "Starts": [
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "4:00:00",
+    "Categories": [ "Spass", "Stadt" ]
+  },
+  {
+    "Name": "Zahlbares Hotel z Spiez",
+    "Description": "...",
+    "Ranking": 3,
+    "Location": "Spiez",
+    "Starts": [
+      {
+        "Day": "Monday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Tuesday",
+        "Time": "09:00"
+      },
+      {
+        "Day": "Thursday",
+        "Time": "09:00"
+      }
+    ],
+    "Duration": "16:00:00",
+    "Categories": [ "Stadt" ]
+  }
+]

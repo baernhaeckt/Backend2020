@@ -24,6 +24,7 @@ namespace Backend.Web.MongoDB
         {
             return new OfferDbItem
             {
+                Id = offer.Id,
                 Name = offer.Name,
                 Description = offer.Description,
                 Categories = offer.Categories,

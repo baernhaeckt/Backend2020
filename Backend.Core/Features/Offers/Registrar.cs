@@ -1,4 +1,5 @@
 ﻿using Backend.Core.Extensions;
+using Backend.Web.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Backend.Core.Features.Offers
@@ -7,7 +8,9 @@ namespace Backend.Core.Features.Offers
     {
         public static IServiceCollection AddFeatureOffers(this IServiceCollection services)
         {
-            return services.AddStartupTask<Data.OffersStartupTask>();
+            return services
+                .AddTransient<IOfferService, OfferService>()
+                .AddStartupTask<Data.PaidOffersStartupTask>();
         }
     }
 }

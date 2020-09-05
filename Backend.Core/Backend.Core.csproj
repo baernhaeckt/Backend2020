@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <None Remove="Features\Offers\Resources\offers.json" />
+    <None Remove="Features\PaidOffers\Resources\offers.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Features\Offers\Resources\offers.json" />
+    <EmbeddedResource Include="Features\PaidOffers\Resources\offers.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="QRCoder" Version="1.2.2" />
+    <PackageReference Include="System.Linq.Async" Version="4.1.1" />
   </ItemGroup>
 
   <ItemGroup>

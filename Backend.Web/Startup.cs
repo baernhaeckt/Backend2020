@@ -1,5 +1,6 @@
 using Backend.Core.Features.Guiding;
 using Backend.Core.Features.Offers;
+using Backend.Core.Features.PaidOffers;
 using Backend.Core.Features.UserManagement;
 using Backend.Infrastructure.Hosting;
 using Backend.Infrastructure.Persistence;
@@ -38,7 +39,6 @@ namespace Backend.Web
             var healthChecksBuilder = services.AddHealthChecks();
 
             services.AddTransient<InterestsService>();
-            services.AddTransient<IOfferService, OfferService>();
 
             // Infrastructure
             services.AddInfrastructurePersistence(_configuration, healthChecksBuilder);
@@ -50,6 +50,7 @@ namespace Backend.Web
             services.AddFeatureUserManagement();
             services.AddFeatureGuiding();
             services.AddFeatureOffers();
+            services.AddFeaturePaidOffers();
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)

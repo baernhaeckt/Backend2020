@@ -12,19 +12,18 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Backend.Core.Features.Offers.Data
+namespace Backend.Core.Features.Offers.PaidOffers
 {
     class PaidOffersStartupTask : IStartupTask
     {
-        private const string FILE_PATH = "Features.Offers.Resources.offers.json";
+        private const string FILE_PATH = "Features.PaidOffers.Resources.offers.json";
 
         public IWriter Writer { get; }
         public IWebHostEnvironment Env { get; }
 
-        public PaidOffersStartupTask(IWriter writer, IWebHostEnvironment env)
+        public PaidOffersStartupTask(IWriter writer)
         {
             Writer = writer;
-            Env = env;
         }
 
         private Stream FileContentStream
