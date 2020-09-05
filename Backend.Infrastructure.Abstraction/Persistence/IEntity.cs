@@ -1,7 +1,7 @@
 ﻿using System;
 using MongoDbGenericRepository.Models;
 
-namespace Backend.Core.Entities
+namespace Backend.Infrastructure.Abstraction.Persistence
 {
     public interface IEntity : IDocument
     {

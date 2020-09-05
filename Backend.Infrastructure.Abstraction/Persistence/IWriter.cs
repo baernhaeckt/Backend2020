@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Backend.Core.Entities;
 
 namespace Backend.Infrastructure.Abstraction.Persistence
 {

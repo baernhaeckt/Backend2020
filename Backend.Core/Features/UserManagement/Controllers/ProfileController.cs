@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Backend.Core;
 using Backend.Core.Entities;
+using Backend.Core.Features.UserManagement.Responses;
 using Backend.Infrastructure.Abstraction.Persistence;
-using Backend.Models;
+using Backend.Infrastructure.Abstraction.Security;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Backend.Web.Controllers
+namespace Backend.Core.Features.UserManagement.Controllers
 {
     [Route("api/profile")]
     [ApiController]

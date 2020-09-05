@@ -1,3 +1,5 @@
+using Backend.Core.Features.Guiding;
+using Backend.Core.Features.UserManagement;
 using Backend.Infrastructure.Hosting;
 using Backend.Infrastructure.Persistence;
 using Backend.Infrastructure.Security;
@@ -41,6 +43,11 @@ namespace Backend.Web
             services.AddInfrastructurePersistence(_configuration, healthChecksBuilder);
             services.AddInfrastructureSecurity(_hostEnvironment);
             services.AddInfrastructureHosting();
+            services.AddHostedService<StartupTaskRunner>();
+
+            // Features
+            services.AddFeatureUserManagement();
+            services.AddFeatureGuiding();
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)

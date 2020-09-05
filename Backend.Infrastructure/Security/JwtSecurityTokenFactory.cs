@@ -23,7 +23,7 @@ namespace Backend.Infrastructure.Security
             var now = DateTime.Now;
             var claims = new List<Claim>
             {
-                new Claim(Core.ClaimTypes.UserId, id.ToString()),
+                new Claim(Infrastructure.Abstraction.Security.ClaimTypes.UserId, id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, subject),
                 new Claim(JwtRegisteredClaimNames.Sub, subject),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

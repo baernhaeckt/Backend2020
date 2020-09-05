@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 
-namespace Backend.Core
+namespace Backend.Infrastructure.Abstraction.Security
 {
     public static class PrincipalExtensions
     {

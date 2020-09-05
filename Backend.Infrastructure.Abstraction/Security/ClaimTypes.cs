@@ -1,4 +1,4 @@
-﻿namespace Backend.Core
+﻿namespace Backend.Infrastructure.Abstraction.Security
 {
     public static class ClaimTypes
     {

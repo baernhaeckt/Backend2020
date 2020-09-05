@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Backend.Core.Features.UserManagement.Requests;
 using Backend.Models;
 using Newtonsoft.Json;
 

@@ -1,14 +1,15 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Backend.Core.Entities;
+using Backend.Core.Features.UserManagement.Requests;
+using Backend.Core.Features.UserManagement.Responses;
 using Backend.Infrastructure.Abstraction.Persistence;
 using Backend.Infrastructure.Abstraction.Security;
-using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Backend.Web.Controllers
+namespace Backend.Core.Features.UserManagement.Controllers
 {
     [Route("api/users")]
     [ApiController]
@@ -37,10 +38,7 @@ namespace Backend.Web.Controllers
                 return Unauthorized();
             }
 
-            var response = new UserLoginResponse
-            {
-                Token = _securityTokenFactory.Create(user.Id, user.Email, Enumerable.Empty<string>())
-            };
+            var response = new UserLoginResponse(_securityTokenFactory.Create(user.Id, user.Email, Enumerable.Empty<string>()));
             Response.Headers.Add("Authorization", $"Bearer {response.Token}");
             return new ActionResult<UserLoginResponse>(response);
         }
@@ -49,14 +47,14 @@ namespace Backend.Web.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<UserLoginResponse>> Register([FromBody] RegisterUserRequest request)
         {
-            var user = await _writer.InsertAsync(new User {Email = request.Email, PasswordHash = _passwordStorage.Create(request.Password)});
+            var roles = new List<string>{ request.AsGuide ? Roles.Guide : Roles.User };
+            var user = new User { Email = request.Email, PasswordHash = _passwordStorage.Create(request.Password), Roles = roles  };
+            await _writer.InsertAsync(user);
 
-            var response = new UserLoginResponse
-            {
-                Token = _securityTokenFactory.Create(user.Id, user.Email, Enumerable.Empty<string>())
-            };
+            var response = new UserLoginResponse(_securityTokenFactory.Create(user.Id, user.Email, Enumerable.Empty<string>()));
             Response.Headers.Add("Authorization", $"Bearer {response.Token}");
             return new ActionResult<UserLoginResponse>(response);
         }
+
     }
 }
