@@ -12,7 +12,5 @@ namespace Backend.Core.Features.Offers.Services
         Task<OfferResponse> Store(OfferResponse offer);
 
         IAsyncEnumerable<OfferResponse> GetSuggested(IEnumerable<Interest> interests);
-
-        Task<OfferBookingResult> Book(OfferBookingRequest offer);
     }
 }

@@ -41,10 +41,10 @@ namespace Backend.Core.Features.Vouchers.Controllers
 
             var qrGenerator = new QRCodeGenerator();
             var voucherQrCode = new SvgQRCode(qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.M));
-            string voucherQrSvg = voucherQrCode.GetGraphic(new Size(300, 300), Color.Black, Color.White, false);
+            string voucherQrSvg = voucherQrCode.GetGraphic(new Size(300, 300), Color.Black, Color.White, true);
 
             var publicTransportQrCode = new SvgQRCode(qrGenerator.CreateQrCode("bls.ch", QRCodeGenerator.ECCLevel.M));
-            string publicTransportQrSvg = publicTransportQrCode.GetGraphic(new Size(300, 300), Color.Black, Color.White, false);
+            string publicTransportQrSvg = publicTransportQrCode.GetGraphic(new Size(300, 300), Color.Black, Color.White, true);
 
             var voucher = await _writer.InsertAsync(new Voucher(voucherId, offer, publicTransportQrSvg, voucherQrSvg, HttpContext.User.Id()));
 
@@ -69,7 +69,7 @@ namespace Backend.Core.Features.Vouchers.Controllers
 
             await _writer.UpdateAsync<Voucher>(voucherId, new { IsUsed = true });
             await _notification.Clients.Group(voucher.CustomerId.ToString())
-                .SendAsync("newEvent", new { Variant = "Success", Title = "Voucher used", Message = voucher.Offer.Name});
+                .SendAsync("newEvent", new { Variant = "Success", Title = "Voucher registriert", Message = $"Der Voucher '{voucher.Offer.Name}' wurde registriert." });
 
             return NoContent();
         }

@@ -1,9 +1,7 @@
 ﻿using Backend.Core.Entities;
-using Backend.Core.Features.Offers.Models;
 using Backend.Core.Features.PaidOffers.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

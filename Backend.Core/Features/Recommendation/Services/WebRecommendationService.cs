@@ -1,5 +1,4 @@
-﻿using Backend.Core.Features.Offers.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,13 +10,12 @@ namespace Backend.Core.Features.Recommendation.Services
 {
     public class WebRecommendationService : IRecommendationService
     {
-        private static string _baseUrl = "https://baernhaecktrecommender.azurewebsites.net";
+        private const string BaseUrl = "https://baernhaecktrecommender.azurewebsites.net";
 
-        private HttpClient HttpClient => new HttpClient() { BaseAddress = new Uri(_baseUrl) };
+        private static HttpClient HttpClient => new HttpClient { BaseAddress = new Uri(BaseUrl) };
 
-        private Task<HttpResponseMessage> Query(string type, IEnumerable<string> categories)
+        private static Task<HttpResponseMessage> Query(string type, IEnumerable<string> categories)
             => HttpClient.GetAsync($"/{type}?text={ string.Join(" ", categories) }");
-
 
         private async Task<IEnumerable<RecommendationResult>> Get(string type, IEnumerable<string> categories)
         {
@@ -27,15 +25,11 @@ namespace Backend.Core.Features.Recommendation.Services
             return response.Result.Select(parse);
         }
 
-        public async Task<IEnumerable<RecommendationResult>> GetOfferRecommendation(IEnumerable<string> categories)
-        {
-            return await Get("offers", categories);
-        }
+        public async Task<IEnumerable<RecommendationResult>> GetOfferRecommendation(IEnumerable<string> categories) 
+            => await Get("offers", categories);
 
         public async Task<IEnumerable<RecommendationResult>> GetPaidOfferRecommendation(IEnumerable<string> categories)
-        {
-            return await Get("paidoffers", categories);
-        }
+            => await Get("paidoffers", categories);
 
         private static RecommendationResult parse(IList<JsonElement> responseList)
         {

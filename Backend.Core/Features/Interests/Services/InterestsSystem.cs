@@ -7,7 +7,15 @@ namespace Backend.Core.Features.Interests.Services
 {
     public class InterestsSystem
     {
-        private static readonly IDictionary<string, IDictionary<string, IList<string>>> tree =
+        private readonly bool _layerOneDone;
+
+        private readonly bool _layerTwoDone;
+
+        private readonly bool _layerThreeDone;
+        
+        private readonly ICollection<Interest> _interests;
+
+        private static readonly IDictionary<string, IDictionary<string, IList<string>>> Tree =
             new Dictionary<string, IDictionary<string, IList<string>>>
             {
                 {
@@ -37,24 +45,18 @@ namespace Backend.Core.Features.Interests.Services
 
         private InterestsSystem(ICollection<Interest> interests)
         {
-            Interests = interests;
+            _interests = interests;
 
-            LayerOneDone = CheckLayerDone(0, interests);
-            LayerTwoDone = CheckLayerDone(1, interests);
-            LayerThreeDone = CheckLayerDone(2, interests);
+            _layerOneDone = CheckLayerDone(0, interests);
+            _layerTwoDone = CheckLayerDone(1, interests);
+            _layerThreeDone = CheckLayerDone(2, interests);
         }
 
-        private bool LayerOneDone { get; }
-
-        private bool LayerTwoDone { get; }
-
-        private bool LayerThreeDone { get; }
-
         private int UnfinishedLayerIndex 
-            => !LayerOneDone ? 0 : !LayerTwoDone ? 1 : !LayerThreeDone ? 2 : -1;
+            => !_layerOneDone ? 0 : !_layerTwoDone ? 1 : !_layerThreeDone ? 2 : -1;
 
         public Interest NextInterestCheck 
-            => UnfinishedLayerIndex == -1 || String.IsNullOrEmpty(NextInterestCheckName) ? null : new Interest {Name = NextInterestCheckName};
+            => UnfinishedLayerIndex == -1 || string.IsNullOrEmpty(NextInterestCheckName) ? null : new Interest {Name = NextInterestCheckName};
 
         private string NextInterestCheckName
         {
@@ -67,21 +69,21 @@ namespace Backend.Core.Features.Interests.Services
                     case 1:
                     {
                         var selectedInterest =
-                            Interests.FirstOrDefault(i => i.Match && layeredInterests[0].Contains(i.Name));
+                            _interests.FirstOrDefault(i => i.Match && layeredInterests[0].Contains(i.Name));
 
                         return selectedInterest == null
                             ? GetOneNotUsedInterest(layeredInterests[1])
-                            : GetOneNotUsedInterest(tree[selectedInterest.Name].Keys.ToList());
+                            : GetOneNotUsedInterest(Tree[selectedInterest.Name].Keys.ToList());
                     }
                     case 2:
                     {
                         var selectedInterest =
-                            Interests.FirstOrDefault(i => i.Match && layeredInterests[1].Contains(i.Name));
+                            _interests.FirstOrDefault(i => i.Match && layeredInterests[1].Contains(i.Name));
 
                         return selectedInterest == null
                             ? GetOneNotUsedInterest(layeredInterests[2])
                             : GetOneNotUsedInterest(
-                                tree.Values.First(kvp =>
+                                Tree.Values.First(kvp =>
                                     kvp.ContainsKey(selectedInterest.Name))[selectedInterest.Name]);
                     }
                     default:
@@ -89,8 +91,6 @@ namespace Backend.Core.Features.Interests.Services
                 }
             }
         }
-
-        public ICollection<Interest> Interests { get; }
 
         private static bool CheckLayerDone(int layerIndex, ICollection<Interest> interests)
         {
@@ -100,11 +100,8 @@ namespace Backend.Core.Features.Interests.Services
 
         private string GetOneNotUsedInterest(IEnumerable<string> interestOptions)
         {
-            var options = interestOptions.Where(i => !Interests.Any(it => it.Name.Equals(i))).ToList();
-            
-
-
-            return options.Count() == 0 ? string.Empty : options[new Random().Next(0, options.Count())];
+            var options = interestOptions.Where(i => !_interests.Any(it => it.Name.Equals(i))).ToList();
+            return !options.Any() ? string.Empty : options[new Random().Next(0, options.Count)];
         }
 
         public static InterestsSystem Of(ICollection<Interest> interests) => new InterestsSystem(interests);

@@ -59,10 +59,5 @@ namespace Backend.Core.Features.Offers.Services
             offerResponse.GuideDisplayName = user.DisplayName;
             return offerResponse;
         }
-
-        public Task<OfferBookingResult> Book(OfferBookingRequest offer)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

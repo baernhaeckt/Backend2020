@@ -38,11 +38,5 @@ namespace Backend.Core.Features.Offers.Controllers
         [HttpPost]
         public Task<OfferResponse> Create([FromBody] OfferResponse offer) 
             => _offerService.Store(offer);
-
-
-        // POST api/offers/book
-        [HttpPost("book")]
-        public Task<OfferBookingResult> Book([FromBody] OfferBookingRequest offerBookingRequest) 
-            => _offerService.Book(offerBookingRequest);
     }
 }
