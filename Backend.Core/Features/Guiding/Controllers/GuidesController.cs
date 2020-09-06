@@ -19,7 +19,7 @@ namespace Backend.Core.Features.Guiding.Controllers
         [HttpGet]
         public async Task<IEnumerable<GuideResponse>> Get()
         {
-            var guides = await _reader.WhereAsync<User, GuideResponse>(u => u.Roles.Contains(Roles.Guide), u => new GuideResponse(u.Id, u.DisplayName, u.Languages));
+            var guides = await _reader.WhereAsync<User, GuideResponse>(u => u.Roles.Contains(Roles.Guide), u => new GuideResponse(u.Id, u.DisplayName, u.Description, u.Languages));
             return guides;
         }
     }
