@@ -29,9 +29,7 @@ namespace Backend.Core.Features.PaidOffers.Controllers
 
         // GET: api/paidoffers/suggest
         [HttpPost("suggest")]
-        public IAsyncEnumerable<PaidOffer> Suggest([FromBody] Guid offerId)
-        {
-            return PaidOffersService.Suggest(offerId);
-        }
+        public IAsyncEnumerable<PaidOffer> Suggest([FromBody] PaidOfferSuggestionRequest offerRequest) 
+            => PaidOffersService.Suggest(offerRequest.OfferId);
     }
 }
